@@ -1,0 +1,15 @@
+{
+  "post_types": {
+    "testimonial": {},
+    "people": {},
+    "expertise": {},
+    "vacancies": {}
+  },
+  "taxonomies": {
+    "practice": {},
+    "sector": {},
+    "location": {}
+  },
+  "options": {
+  }
+}
