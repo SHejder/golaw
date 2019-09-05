@@ -1,4 +1,4 @@
-<?php
+    <?php
 /*
 Template Name: Service
 Template Post Type: expertise
@@ -19,7 +19,7 @@ if (have_posts()):; ?>
                                 yoast_breadcrumb('<ul class="breadcrumbs">', '</ul>');
                             }
                             ?>
-                            <div class="sub-practice__text-content">
+                            <div class="sub-practice__text-content bl-num">
                                 <?php content(); ?>
                             </div>
                         </div>
