@@ -23,7 +23,7 @@ if (have_posts()):
                         <div class="lawyer-ab__law">
                             <div class="lawyer-ab__wrap-head-main">
                                 <figure class="lawyer-ab__wrap-img">
-                                    <?php the_post_thumbnail(); ?>
+                                    <?php the_post_thumbnail('people', array('alt'=> get_the_title()));?>
                                 </figure>
                                 <div class="lawyer-ab__wrap-about">
                                     <div class="lawyer-ab__wrap-name-pos">

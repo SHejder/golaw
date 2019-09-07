@@ -10,6 +10,7 @@
     "sector": {},
     "location": {}
   },
-  "options": {
-  }
+  "admin_pages": [
+    "toplevel_page_acf-options"
+  ]
 }

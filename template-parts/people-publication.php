@@ -1,9 +1,11 @@
 <?php $recognitions = get_field('recognitions');
 $description = get_field('description');; ?>
 <div class="overview__wrap-head-main">
-    <figure class="overview__wrap-img">
-        <img src="<?= get_the_post_thumbnail_url();?>" alt="<?php the_title();?>">
-    </figure>
+    <?php if(has_post_thumbnail()):?>
+        <figure class="overview__wrap-img">
+            <?php the_post_thumbnail('people', array('alt'=> get_the_title()));?>
+        </figure>
+    <?php endif;?>
     <div class="overview__wrap-about">
         <div class="overview__wrap-name-pos">
             <h3 class="overview__name">

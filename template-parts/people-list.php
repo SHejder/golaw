@@ -1,6 +1,10 @@
 <?php $description = get_field('description');?>
 <div class="search-law__lawyer">
-    <figure class="search-law__wrap-img"><img src="<?= get_the_post_thumbnail_url();?>" alt="<?php the_title();?>"></figure>
+    <?php if(has_post_thumbnail()):?>
+        <figure class="search-law__wrap-img">
+            <?php the_post_thumbnail('people', array('alt'=> get_the_title()));?>
+        </figure>
+    <?php endif;?>
     <div class="search-law__content">
         <h2 class="search-law__name">
             <a href="<?= get_permalink(); ?>"

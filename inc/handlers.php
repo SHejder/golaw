@@ -29,9 +29,11 @@ function sidebar_menu($menu_id)
  */
 function dt_get_title()
 {
-    if (is_singular() && !is_front_page()) {
-        single_post_title();
-    } elseif (is_home() || is_front_page()) {
+    if (!is_front_page()) {
+        if(is_home() || is_singular()){
+            single_post_title();
+        }
+    } elseif (is_front_page()) {
         preg_match_all('/\w{3,}|\w{1,2}\s\w{3,}/iu', single_post_title('', false), $words);
         echo implode('<br>', $words[0]);
     } elseif (is_year() || is_archive()) {

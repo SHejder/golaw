@@ -84,6 +84,11 @@ add_shortcode('slider','contentSlider');
 
 
 add_action( 'save_post_people', 'savePDF', 10, 3 );
+if(function_exists('add_image_size')){
+    add_image_size('post', 384, 256, true);
+    add_image_size('people', 280, 268);
+}
+
 
 if(isset($_POST['get_pdf'])&& !empty($_POST['get_pdf'])){
     $pdf = new Pdf(new Mpdf());
@@ -95,23 +100,3 @@ if(isset($_POST['get_pdf'])&& !empty($_POST['get_pdf'])){
     $pdf->savePDF(get_post($_POST['post_id']));
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

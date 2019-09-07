@@ -1,11 +1,13 @@
 <?php $description = get_field('description');?>
 <div class="layers__item">
     <figure class="layers__wrap_img">
+        <?php if(has_post_thumbnail()):?>
         <div class="layers__img">
             <a href="<?= get_permalink(); ?>" title="<?php the_title();?>">
-                <img src="<?= get_the_post_thumbnail_url();?>" alt="<?php the_title();?>">
+                <?php the_post_thumbnail('people', array('alt'=> get_the_title()));?>
             </a>
         </div>
+        <?php endif;?>
         <figcaption class="layers__name">
             <a href="<?= get_permalink(); ?>" class="layers__link"><?php the_title(); ?></a>
         </figcaption>
