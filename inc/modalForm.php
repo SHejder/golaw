@@ -46,6 +46,11 @@ function sendDataToCRM($name, $email, $text)
         'message' => $text,
         'types' => $_POST['type']
     );
+    if(isset($_POST['utm_source'])) $data['utm_source'] = $_POST['utm_source'];
+    if(isset($_POST['utm_content'])) $data['utm_content'] = $_POST['utm_content'];
+    if(isset($_POST['utm_medium'])) $data['utm_medium'] = $_POST['utm_medium'];
+    if(isset($_POST['utm_campaign'])) $data['utm_campaign'] = $_POST['utm_campaign'];
+    if(isset($_POST['utm_term'])) $data['utm_term'] = $_POST['utm_term'];
     $bitrix->setQueryData($data);
     $bitrix->executeREST();
 }

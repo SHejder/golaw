@@ -34,11 +34,14 @@ class Bitrix24
             'PHONE' => array(array("VALUE" => $data['phone'], "VALUE_TYPE" => "WORK")),
             'EMAIL' => array(array("VALUE" => $data['email'], "VALUE_TYPE" => "WORK")),
             'COMMENTS' => $data['message'],
-            'UTM_SOURCE' => $data['utm_source'],
-            'UTM_CAMPAIGN' => $data['utm_campaign']
         );
+        if (isset($data['utm_source'])) $fields['UTM_SOURCE'] = $data['utm_source'];
+        if (isset($data['utm_campaign'])) $fields['UTM_CAMPAIGN'] = $data['utm_campaign'];
+        if (isset($data['utm_medium'])) $fields['UTM_MEDIUM'] = $data['utm_medium'];
+        if (isset($data['utm_content'])) $fields['UTM_CONTENT'] = $data['utm_content'];
+        if (isset($data['utm_term'])) $fields['UTM_TERM'] = $data['utm_term'];
         if ($data['types']) {
-            foreach ($data['types'] as $type){
+            foreach ($data['types'] as $type) {
                 switch ($type) {
                     case 'all':
                         $fields['UF_CRM_1565854668'] = 'Y';

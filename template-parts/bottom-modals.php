@@ -22,13 +22,15 @@
             <div class="modal-dow__wrapper">
                 <div class="modal-dow__wrap-input">
                     <div class="modal-sub__wrapper-inp wr-inp wr-1">
-                        <input type="text" class="modal-sub__input inp inp-name" placeholder="<?php trans('Enter your name'); ?>">
+                        <input type="text" class="modal-sub__input inp inp-name"
+                               placeholder="<?php trans('Enter your name'); ?>">
                         <div class="error-data">
                             <span><?php trans('Enter a name'); ?></span>
                         </div>
                     </div>
                     <div class="modal-sub__wrapper-inp wr-inp wr-2">
-                        <input type="email" class="modal-sub__input inp inp-email" placeholder="<?php trans('Enter your e-mail'); ?>">
+                        <input type="email" class="modal-sub__input inp inp-email"
+                               placeholder="<?php trans('Enter your e-mail'); ?>">
                         <div class="error-data">
                             <span><?php trans('Enter a valid email address'); ?></span>
                         </div>
@@ -51,22 +53,25 @@
                     </button>
                 </div>
                 <div class="modal-dow__text">
-                    <?php trans('Enter your information in order to receive the file.');?>
+                    <?php trans('Enter your information in order to receive the file.'); ?>
                 </div>
             </div>
+            <?php utmInputs();?>
         </form>
         <form action="#" data-type="sub" class="modal-sub ajaxForm" novalidate>
             <h2 class="modal-sub__title"><?php trans('Sign up'); ?></h2>
             <div class="modal-sub__wrapper">
                 <div class="modal-sub__wrap-input">
                     <div class="modal-sub__wrapper-inp wr-inp wr-1">
-                        <input type="text" class="modal-sub__input inp inp-name" placeholder="<?php trans('Enter your name'); ?>">
+                        <input type="text" class="modal-sub__input inp inp-name"
+                               placeholder="<?php trans('Enter your name'); ?>">
                         <div class="error-data">
                             <span><?php trans('Enter a name'); ?></span>
                         </div>
                     </div>
                     <div class="modal-sub__wrapper-inp wr-inp wr-2">
-                        <input type="email" class="modal-sub__input inp inp-email" placeholder="<?php trans('Enter your e-mail'); ?>">
+                        <input type="email" class="modal-sub__input inp inp-email"
+                               placeholder="<?php trans('Enter your e-mail'); ?>">
                         <div class="error-data">
                             <span><?php trans('Enter a valid email address'); ?></span>
                         </div>
@@ -91,7 +96,8 @@
                 <ul class="modal-sub__wrap-radio">
                     <li class="modal-sub__item">
                         <label class="modal-sub__label">
-                            <input type="checkbox" checked name="ch-sub" value="all" class="modal-sub__radio-input ch-sub ch-sub-0">
+                            <input type="checkbox" checked name="ch-sub" value="all"
+                                   class="modal-sub__radio-input ch-sub ch-sub-0">
                             <span class="modal-sub__text"><?php trans('All insights'); ?>
                                     </span>
                             <div class="tooltip">
@@ -101,16 +107,16 @@
                                     <g>
                                         <g>
                                             <path d="M32.5,0C14.58,0,0,14.579,0,32.5S14.58,65,32.5,65S65,50.421,65,32.5S50.42,0,32.5,0z M32.5,61C16.785,61,4,48.215,4,32.5
-    			                             S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z" />
-                                            <circle cx="33.018" cy="19.541" r="3.345" />
-                                            <path d="M32.137,28.342c-1.104,0-2,0.896-2,2v17c0,1.104,0.896,2,2,2s2-0.896,2-2v-17C34.137,29.237,33.241,28.342,32.137,28.342z" />
+    			                             S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z"/>
+                                            <circle cx="33.018" cy="19.541" r="3.345"/>
+                                            <path d="M32.137,28.342c-1.104,0-2,0.896-2,2v17c0,1.104,0.896,2,2,2s2-0.896,2-2v-17C34.137,29.237,33.241,28.342,32.137,28.342z"/>
                                         </g>
                                     </g>
                                 </svg>
 
                                 <div class="tooltip-content">
                                     <div class="tooltip-arrow"></div>
-                                    <p><?php trans('Subscription to all types of newsletters');?>.</p>
+                                    <p><?php trans('Subscription to all types of newsletters'); ?>.</p>
                                 </div>
                             </div>
                         </label>
@@ -126,10 +132,10 @@
                                     <g>
                                         <g>
                                             <path d="M32.5,0C14.58,0,0,14.579,0,32.5S14.58,65,32.5,65S65,50.421,65,32.5S50.42,0,32.5,0z M32.5,61C16.785,61,4,48.215,4,32.5
-    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z" />
-                                            <circle cx="33.018" cy="19.541" r="3.345" />
+    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z"/>
+                                            <circle cx="33.018" cy="19.541" r="3.345"/>
                                             <path d="M32.137,28.342c-1.104,0-2,0.896-2,2v17c0,1.104,0.896,2,2,2s2-0.896,2-2v-17C34.137,29.237,33.241,28.342,32.137,28.342z
-    			" />
+    			"/>
                                         </g>
                                     </g>
                                 </svg>
@@ -137,7 +143,7 @@
                                 <div class="tooltip-content">
                                     <div class="tooltip-arrow"></div>
                                     <p>
-                                        <?php trans('Subscription to all company news');?>.
+                                        <?php trans('Subscription to all company news'); ?>.
                                     </p>
                                 </div>
                             </div>
@@ -146,7 +152,7 @@
                     <li class="modal-sub__item">
                         <label class="modal-sub__label">
                             <input type="checkbox" value="tax" name="ch-sub" class="modal-sub__radio-input ch-sub">
-                            <span class="modal-sub__text"><?php trans('Tax alert')?></span>
+                            <span class="modal-sub__text"><?php trans('Tax alert') ?></span>
                             <div class="tooltip">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 65 65"
@@ -154,10 +160,10 @@
                                     <g>
                                         <g>
                                             <path d="M32.5,0C14.58,0,0,14.579,0,32.5S14.58,65,32.5,65S65,50.421,65,32.5S50.42,0,32.5,0z M32.5,61C16.785,61,4,48.215,4,32.5
-    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z" />
-                                            <circle cx="33.018" cy="19.541" r="3.345" />
+    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z"/>
+                                            <circle cx="33.018" cy="19.541" r="3.345"/>
                                             <path d="M32.137,28.342c-1.104,0-2,0.896-2,2v17c0,1.104,0.896,2,2,2s2-0.896,2-2v-17C34.137,29.237,33.241,28.342,32.137,28.342z
-    			" />
+    			"/>
                                         </g>
                                     </g>
                                 </svg>
@@ -165,7 +171,7 @@
                                 <div class="tooltip-content">
                                     <div class="tooltip-arrow"></div>
                                     <p>
-                                        <?php trans('Subscription to the tax legislation update newsletter');?>.
+                                        <?php trans('Subscription to the tax legislation update newsletter'); ?>.
                                     </p>
                                 </div>
                             </div>
@@ -174,7 +180,7 @@
                     <li class="modal-sub__item">
                         <label class="modal-sub__label">
                             <input type="checkbox" value="hotline" name="ch-sub" class="modal-sub__radio-input ch-sub">
-                            <span class="modal-sub__text"><?php trans('Legal hotline');?></span>
+                            <span class="modal-sub__text"><?php trans('Legal hotline'); ?></span>
                             <div class="tooltip">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 65 65"
@@ -182,10 +188,10 @@
                                     <g>
                                         <g>
                                             <path d="M32.5,0C14.58,0,0,14.579,0,32.5S14.58,65,32.5,65S65,50.421,65,32.5S50.42,0,32.5,0z M32.5,61C16.785,61,4,48.215,4,32.5
-    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z" />
-                                            <circle cx="33.018" cy="19.541" r="3.345" />
+    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z"/>
+                                            <circle cx="33.018" cy="19.541" r="3.345"/>
                                             <path d="M32.137,28.342c-1.104,0-2,0.896-2,2v17c0,1.104,0.896,2,2,2s2-0.896,2-2v-17C34.137,29.237,33.241,28.342,32.137,28.342z
-    			" />
+    			"/>
                                         </g>
                                     </g>
                                 </svg>
@@ -193,7 +199,7 @@
                                 <div class="tooltip-content">
                                     <div class="tooltip-arrow"></div>
                                     <p>
-                                        <?php trans('Subscription to all legislation updates');?>.
+                                        <?php trans('Subscription to all legislation updates'); ?>.
                                     </p>
                                 </div>
                             </div>
@@ -202,7 +208,7 @@
                     <li class="modal-sub__item">
                         <label class="modal-sub__label">
                             <input type="checkbox" value="energy" name="ch-sub" class="modal-sub__radio-input ch-sub">
-                            <span class="modal-sub__text"><?php trans('Renewable energy');?></span>
+                            <span class="modal-sub__text"><?php trans('Renewable energy'); ?></span>
                             <div class="tooltip">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 65 65"
@@ -210,10 +216,10 @@
                                     <g>
                                         <g>
                                             <path d="M32.5,0C14.58,0,0,14.579,0,32.5S14.58,65,32.5,65S65,50.421,65,32.5S50.42,0,32.5,0z M32.5,61C16.785,61,4,48.215,4,32.5
-    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z" />
-                                            <circle cx="33.018" cy="19.541" r="3.345" />
+    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z"/>
+                                            <circle cx="33.018" cy="19.541" r="3.345"/>
                                             <path d="M32.137,28.342c-1.104,0-2,0.896-2,2v17c0,1.104,0.896,2,2,2s2-0.896,2-2v-17C34.137,29.237,33.241,28.342,32.137,28.342z
-    			" />
+    			"/>
                                         </g>
                                     </g>
                                 </svg>
@@ -221,7 +227,8 @@
                                 <div class="tooltip-content">
                                     <div class="tooltip-arrow"></div>
                                     <p>
-                                        <?php trans('Subscription to all legislative changes in the renewable energy sphere');?>.
+                                        <?php trans('Subscription to all legislative changes in the renewable energy sphere'); ?>
+                                        .
                                     </p>
                                 </div>
                             </div>
@@ -230,7 +237,7 @@
                     <li class="modal-sub__item">
                         <label class="modal-sub__label">
                             <input type="checkbox" value="claims" name="ch-sub" class="modal-sub__radio-input ch-sub">
-                            <span class="modal-sub__text"><?php trans('Restructuring, claims and recoveries');?></span>
+                            <span class="modal-sub__text"><?php trans('Restructuring, claims and recoveries'); ?></span>
                             <div class="tooltip">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 65 65"
@@ -238,10 +245,10 @@
                                     <g>
                                         <g>
                                             <path d="M32.5,0C14.58,0,0,14.579,0,32.5S14.58,65,32.5,65S65,50.421,65,32.5S50.42,0,32.5,0z M32.5,61C16.785,61,4,48.215,4,32.5
-    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z" />
-                                            <circle cx="33.018" cy="19.541" r="3.345" />
+    			S16.785,4,32.5,4S61,16.785,61,32.5S48.215,61,32.5,61z"/>
+                                            <circle cx="33.018" cy="19.541" r="3.345"/>
                                             <path d="M32.137,28.342c-1.104,0-2,0.896-2,2v17c0,1.104,0.896,2,2,2s2-0.896,2-2v-17C34.137,29.237,33.241,28.342,32.137,28.342z
-    			" />
+    			"/>
                                         </g>
                                     </g>
                                 </svg>
@@ -249,7 +256,8 @@
                                 <div class="tooltip-content">
                                     <div class="tooltip-arrow"></div>
                                     <p>
-                                        <?php trans('Subscription to all legislative changes in the restructuring sphere');?>.
+                                        <?php trans('Subscription to all legislative changes in the restructuring sphere'); ?>
+                                        .
                                     </p>
                                 </div>
                             </div>
@@ -257,6 +265,7 @@
                     </li>
                 </ul>
             </div>
+            <?php utmInputs();?>
         </form>
         <?php get_template_part('template-parts/expertise', 'modal'); ?>
         <?php get_template_part('template-parts/vacancies', 'modal'); ?>

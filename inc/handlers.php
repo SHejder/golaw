@@ -30,7 +30,7 @@ function sidebar_menu($menu_id)
 function dt_get_title()
 {
     if (!is_front_page()) {
-        if(is_home() || is_singular()){
+        if (is_home() || is_singular()) {
             single_post_title();
         }
     } elseif (is_front_page()) {
@@ -77,7 +77,7 @@ function cut_wpseo_breadcrumb_last($link_output)
     if (false !== strpos($link_output, 'breadcrumb_last')) {
 
         if (strlen($link_output) > 100) {
-            $link_output = substr($link_output, 0, 100).'...';
+            $link_output = substr($link_output, 0, 100) . '...';
         }
     }
 
@@ -160,13 +160,12 @@ function kama_contents_shortcode($content)
         $args = array(
             'to_menu' => '',
             'title' => trans('Contents', false),
-            'selectors' => array('h2','h3'),
+            'selectors' => array('h2', 'h3'),
             'margin' => 0
         );
 
         return Kama_Contents::init($args)->shortcode($content);
-    }
-    else
+    } else
         return Kama_Contents::init()->strip_shortcode($content);
 }
 
@@ -222,7 +221,8 @@ function contentSlider()
     }
 }
 
-function content() {
+function content()
+{
     if (get_the_content()) {
         the_content();
     } else {
@@ -232,9 +232,34 @@ function content() {
 
 function savePDF($post_ID, $post, $update)
 {
-    $pdf = new Pdf(new Mpdf(), new LocalPdf() );
+    $pdf = new Pdf(new Mpdf(), new LocalPdf());
     $pdf->savePDF($post);
     unset($pdf);
+}
+
+function utmCookie()
+{
+    if (isset($_GET['utm_source'])) {
+        if (isset($_COOKIE['utm_source'])) return;
+        foreach ($_GET as $k => $v) {
+//            echo $k .'='. $v;
+            setcookie($k, $v, time() + 3600 * 24, '/');
+        }
+    }
+}
+
+function utmInputs()
+{
+    if (!isset($_COOKIE['utm_source'])) {
+        return;
+    } else {
+        echo "<input type='hidden' class='utm_source' value='{$_COOKIE['utm_source']}'>";
+        if (isset($_COOKIE['utm_content'])) echo "<input type='hidden' class='utm_content' value='{$_COOKIE['utm_content']}'>";
+        if (isset($_COOKIE['utm_medium'])) echo "<input type='hidden' class='utm_medium' value='{$_COOKIE['utm_medium']}'>";
+        if (isset($_COOKIE['utm_campaign'])) echo "<input type='hidden' class='utm_campaign' value='{$_COOKIE['utm_campaign']}'>";
+        if (isset($_COOKIE['utm_term'])) echo "<input type='hidden' class='utm_term' value='{$_COOKIE['utm_term']}'>";
+    }
+
 }
 
 
