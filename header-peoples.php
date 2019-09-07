@@ -15,7 +15,7 @@ if (in_array($id, $articles)) {
 <header class="header-inside header-inside_search-bar header-inside_people">
     <div class="container">
         <div class="header-page">
-            <h1 class="header-page__title<?= $article ? ' header-page__title_article' : ''; ?>">
+            <h1 class="header-page__title<?= isset($article) ? ' header-page__title_article' : ''; ?>">
                 <?php trans('Find a professional');?>
             </h1>
             <?php
@@ -28,7 +28,7 @@ if (in_array($id, $articles)) {
     <div class="container">
         <form action="#" id="people-search" class="search-bar law-s">
             <div class="search-bar__main-input">
-                <input type="text" id="people-query" name="query-people" value="<?=$_GET['q'] ? $_GET['q'] : ''?>"
+                <input type="text" id="people-query" name="query-people" value="<?= isset($_GET['q']) ? $_GET['q'] : ''?>"
                        class="search-bar__input s-field-law" placeholder="<?php trans('Search by name or surname')?>">
                 <button class="search-bar__submit">
                             <span>

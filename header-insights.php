@@ -1,8 +1,8 @@
 <?php get_template_part(HEADER_TMP_PATH, 'basic');
 if ($_GET){
     unset($_SESSION['insights']);
-    if ($_GET['t']) $_SESSION['insights']['tag_id'] = $_GET['t'];
-    if ($_GET['c']) $_SESSION['insights']['cat'] = $_GET['c'];
+    if (isset($_GET['t'])) $_SESSION['insights']['tag_id'] = $_GET['t'];
+    if (isset($_GET['c'])) $_SESSION['insights']['cat'] = $_GET['c'];
 }
 ;?>
 <header class="header-inside header-inside_search-bar">
@@ -11,7 +11,7 @@ if ($_GET){
         <form action="" id="insights-search" class="search-bar ins-s" method="post">
             <div class="search-bar__main-input">
                 <input type="text" id="search-field" name="s" class="search-bar__input s-field" placeholder="<?php trans('Search for a topic by keywords')?>"
-                       value="<?php echo esc_attr( $query ); ?>">
+                       value="<?= isset($query)? esc_attr( $query ): ''; ?>">
                 <button type="submit" class="search-bar__submit">
                         <span>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -36,8 +36,8 @@ if ($_GET){
             </div>
         </form>
         <script>
-            let session_cat = <?= $_SESSION['insights']['cat'] ? $_SESSION['insights']['cat'] : '0';?>,
-                session_topic = <?= $_SESSION['insights']['tag_id'] ? $_SESSION['insights']['tag_id'] : '0'?>;
+            let session_cat = <?= isset($_SESSION['insights']['cat']) ? $_SESSION['insights']['cat'] : '0';?>,
+                session_topic = <?= isset($_SESSION['insights']['tag_id']) ? $_SESSION['insights']['tag_id'] : '0'?>;
             if(session_cat !== undefined || session_topic !== undefined){
                 $('#search_topic').val(session_topic);
                 $('#search_category').val(session_cat);

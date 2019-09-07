@@ -3,7 +3,7 @@ get_header('peoples');
 global $wp_query;?>
 <div id="ajaxContent">
     <?php
-    if ($_SESSION['people'] && $_SESSION['people']['post_type'])$args = $_SESSION['people'];
+    if (isset($_SESSION['people']) && isset($_SESSION['people']['post_type']))$args = $_SESSION['people'];
     else $args = array('post_type' => 'people', 'orderby' => 'menu_order', 'order' => 'ASC');
 //    debug($args);
     query_posts($args);

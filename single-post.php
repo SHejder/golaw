@@ -20,23 +20,25 @@ if (function_exists('get_field')) {
                                     <span class="article__date"><?= get_the_date('d F Y'); ?></span>
                                     <span class="article__type">- <?= $category[0]->name ?></span>
                                 </div>
-                                <div class="article__wrap-topic">
-                                    <p class="article__topic-text"><?php trans('Tags'); ?></p>
-                                    <ul class="article__topic-wrapper">
-                                        <?php foreach ($tags as $tag): ?>
-                                            <li class="article__topic-item">
-                                                <a href="<?= $insights_link ?>?t=<?= $tag->term_id ?>"
-                                                   class="article__topic-link">
-                                                    <span><?= $tag->name ?></span>
-                                                </a>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
+                                <?php if (!empty($tags)): ?>
+                                    <div class="article__wrap-topic">
+                                        <p class="article__topic-text"><?php trans('Tags'); ?></p>
+                                        <ul class="article__topic-wrapper">
+                                            <?php foreach ($tags as $tag): ?>
+                                                <li class="article__topic-item">
+                                                    <a href="<?= $insights_link ?>?t=<?= $tag->term_id ?>"
+                                                       class="article__topic-link">
+                                                        <span><?= $tag->name ?></span>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <?php content(); ?>
                             <?php if ($is_digest): ?>
-                                <a href="" data-id="<?php the_ID();?>" class="overview__print dow-info" download>
+                                <a href="" data-id="<?php the_ID(); ?>" class="overview__print dow-info" download>
                                     <span>
                                         <i>
                                             <svg class="overview__pr-svg" viewBox="0 0 16 16" fill="none"
@@ -76,9 +78,9 @@ if (function_exists('get_field')) {
                             <?php endif; ?>
                             <div class="overview__print-share">
                                 <?php if ($is_digest): ?>
-                                <?php else:?>
-                                <form action="<?= get_permalink(get_the_ID());?>" method="post">
-                                    <button type="submit" class="overview__print" >
+                                <?php else: ?>
+                                    <form action="<?= get_permalink(get_the_ID()); ?>" method="post">
+                                        <button type="submit" class="overview__print">
                                         <span>
                                             <i>
                                                 <svg class="overview__pr-svg" viewBox="0 0 16 16" fill="none"
@@ -90,14 +92,14 @@ if (function_exists('get_field')) {
                                             </i>
                                             Printable PDF
                                         </span>
-                                        <svg width="174" height="64" viewBox="0 0 174 64"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <rect x='0' y='0' fill='none' width='174' height='64'/>
-                                        </svg>
-                                    </button>
-                                    <input type="hidden" name="post_id" value="<?php the_ID();?>">
-                                    <input type="hidden" name="get_pdf" value="article">
-                                </form>
+                                            <svg width="174" height="64" viewBox="0 0 174 64"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <rect x='0' y='0' fill='none' width='174' height='64'/>
+                                            </svg>
+                                        </button>
+                                        <input type="hidden" name="post_id" value="<?php the_ID(); ?>">
+                                        <input type="hidden" name="get_pdf" value="article">
+                                    </form>
                                 <?php endif; ?>
 
                                 <ul class="overview__share">
@@ -122,7 +124,9 @@ if (function_exists('get_field')) {
                                                 $summary = get_the_excerpt();
                                                 $url = get_permalink();
                                                 ?>
-                                                <a title="Share to Facebook" target="_parent" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>"   class="overview__sh-link sh-link">
+                                                <a title="Share to Facebook" target="_parent"
+                                                   href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>"
+                                                   class="overview__sh-link sh-link">
                                                     <i>
                                                         <svg class="overview__sh-svg overview__sh-svg_fb"
                                                              viewBox="0 0 7 14" fill="none"
@@ -134,7 +138,9 @@ if (function_exists('get_field')) {
                                                 </a>
                                             </li>
                                             <li class="overview__sh-item">
-                                                <a title="Share to Twitter" href="http://twitter.com/share?text=<?php echo $title; ?>&via=twitterfeed&related=truemisha&url=<?php echo $url; ?>" class="overview__sh-link sh-link">
+                                                <a title="Share to Twitter"
+                                                   href="http://twitter.com/share?text=<?php echo $title; ?>&via=twitterfeed&related=truemisha&url=<?php echo $url; ?>"
+                                                   class="overview__sh-link sh-link">
                                                     <i>
                                                         <svg class="overview__sh-svg overview__sh-svg_tw"
                                                              viewBox="0 0 15 12" fill="none"
@@ -146,7 +152,9 @@ if (function_exists('get_field')) {
                                                 </a>
                                             </li>
                                             <li class="overview__sh-item">
-                                                <a title="Share to Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&title=<?php echo urlencode( $title ); ?>&source=<?php echo get_home_url();?>" class="overview__sh-link sh-link">
+                                                <a title="Share to Linkedin"
+                                                   href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&title=<?php echo urlencode($title); ?>&source=<?php echo get_home_url(); ?>"
+                                                   class="overview__sh-link sh-link">
                                                     <i>
                                                         <svg class="overview__sh-svg overview__sh-svg_in"
                                                              viewBox="0 0 15 14" fill="none"
