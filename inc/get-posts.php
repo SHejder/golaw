@@ -4,7 +4,7 @@ function posts_search()
 {
     global $wp_query;
     $args = array(
-        'posts_per_page' => 3,
+        'posts_per_page' => 9,
         'post_type' => 'post',
         'orderby' => 'date',
         'sentence' => 1,

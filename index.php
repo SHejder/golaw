@@ -3,10 +3,10 @@ global $wp_query, $insights_link;
 get_header('insights'); ?>
     <div id="ajaxContent">
         <?php
-        if ($_SESSION['insights']) {
+        if (isset($_SESSION['insights'])) {
             $args = $_SESSION['insights'];
         } else {
-            $args = array('posts_per_page' => 3);
+            $args = array('posts_per_page' => 9);
             $_SESSION['insights'] = $args;
         }
         query_posts($args);
