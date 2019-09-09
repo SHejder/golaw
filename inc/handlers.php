@@ -76,8 +76,8 @@ function cut_wpseo_breadcrumb_last($link_output)
 
     if (false !== strpos($link_output, 'breadcrumb_last')) {
 
-        if (strlen($link_output) > 100) {
-            $link_output = substr($link_output, 0, 100) . '...';
+        if (mb_strlen($link_output) > 100) {
+            $link_output = mb_substr($link_output, 0, 100) . '...';
         }
     }
 
