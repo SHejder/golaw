@@ -21,7 +21,7 @@ global $wp_query;
                 <p class="search-criteria__text"><?php trans('Search Results for'); ?>:</p>
                 <ul class="search-criteria__filters">
                     <?php if (isset($_SESSION['people']['s']) || isset($taxonomy)): ?>
-                        <?php if ($_SESSION['people']['s']): ?>
+                        <?php if (isset($_SESSION['people']['s'])): ?>
                             <li class="search-criteria__item cr-itm" data-type="s">
                                 <span class="search-criteria__label"><?= $_SESSION['people']['s'] ?></span>
                                 <button class="search-criteria__delite"></button>

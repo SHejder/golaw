@@ -56,9 +56,9 @@ if (in_array($id, $articles)) {
             </div>
         </form>
         <script>
-            var session_practice = <?= $_SESSION['people']['results']['practice'] ? $_SESSION['people']['results']['practice'] : '0';?>,
-                  session_location = <?= $_SESSION['people']['results']['location'] ? $_SESSION['people']['results']['location'] : '0'?>,
-                  session_sector = <?= $_SESSION['people']['results']['sector'] ? $_SESSION['people']['results']['sector'] : '0'?>;
+            var session_practice = <?= isset($_SESSION['people']['results']['practice']) ? $_SESSION['people']['results']['practice'] : '0';?>,
+                  session_location = <?= isset($_SESSION['people']['results']['location']) ? $_SESSION['people']['results']['location'] : '0'?>,
+                  session_sector = <?= isset($_SESSION['people']['results']['sector']) ? $_SESSION['people']['results']['sector'] : '0'?>;
             if(session_practice !== undefined || session_location !== undefined || session_sector !== undefined){
                 $('.s-practice').val(session_practice);
                 $('.s-location').val(session_location);

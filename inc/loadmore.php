@@ -2,7 +2,7 @@
 
 function true_load_posts(){
     if(!$_SESSION['insights']){
-        $args = urldecode( stripslashes( $_POST['query'] ) );
+        $args = json_decode( stripslashes( $_POST['query'] ) );
     } else {
         $args = $_SESSION['insights'];
     }

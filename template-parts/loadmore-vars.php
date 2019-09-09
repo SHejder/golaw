@@ -1,6 +1,6 @@
 <?php global $wp_query; ?>
 <script>
-    var true_posts = '<?= urlencode($wp_query->query_vars); ?>',
+    var true_posts = '<?= json_encode($wp_query->query_vars); ?>',
         current_page = <?= (get_query_var('paged')) ? get_query_var('paged') : 1; ?>,
         max_pages = '<?= $wp_query->max_num_pages; ?>';
 </script>
