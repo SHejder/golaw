@@ -237,27 +237,35 @@ function savePDF($post_ID, $post, $update)
     unset($pdf);
 }
 
-function utmCookie()
+function saveUtmToCookie()
 {
-    if (isset($_GET['utm_source'])) {
-        if (isset($_COOKIE['utm_source'])) return;
+    if (isset($_GET['utm_source']) && !isset($_COOKIE['utm_source'])) {
         foreach ($_GET as $k => $v) {
-//            echo $k .'='. $v;
             setcookie($k, $v, time() + 3600 * 24, '/');
         }
     }
 }
 
+function generateInputs(array $utm)
+{
+    foreach ($utm as $k => $v) {
+        echo "<input type='hidden' class='{$k}' value='{$v}'>";
+    }
+}
+
 function utmInputs()
 {
-    if (!isset($_COOKIE['utm_source'])) {
-        return;
-    } else {
-        echo "<input type='hidden' class='utm_source' value='{$_COOKIE['utm_source']}'>";
-        if (isset($_COOKIE['utm_content'])) echo "<input type='hidden' class='utm_content' value='{$_COOKIE['utm_content']}'>";
-        if (isset($_COOKIE['utm_medium'])) echo "<input type='hidden' class='utm_medium' value='{$_COOKIE['utm_medium']}'>";
-        if (isset($_COOKIE['utm_campaign'])) echo "<input type='hidden' class='utm_campaign' value='{$_COOKIE['utm_campaign']}'>";
-        if (isset($_COOKIE['utm_term'])) echo "<input type='hidden' class='utm_term' value='{$_COOKIE['utm_term']}'>";
+    if (isset($_GET['utm_source']) && !isset($_COOKIE['utm_source'])) {
+        $utm = $_GET;
+    } elseif (!isset($_GET['utm_source'])) {
+        isset($_COOKIE['utm_source']) ? $utm['utm_source'] = $_COOKIE['utm_source'] : null;
+        isset($_COOKIE['utm_content']) ? $utm['utm_content'] = $_COOKIE['utm_content'] : null;
+        isset($_COOKIE['utm_medium']) ? $utm['utm_medium'] = $_COOKIE['utm_medium'] : null;
+        isset($_COOKIE['utm_campaign']) ? $utm['utm_campaign'] = $_COOKIE['utm_campaign'] : null;
+        isset($_COOKIE['utm_term']) ? $utm['utm_term'] = $_COOKIE['utm_term'] : null;
+    }
+    if (isset($utm['utm_source']) && !empty($utm['utm_source'])) {
+        generateInputs($utm);
     }
 
 }

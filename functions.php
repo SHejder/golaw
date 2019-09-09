@@ -62,7 +62,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('function', get_template_directory_uri() . '/js/function.js', 'main', '6.1', true);
 });
 add_action('save_post_people', 'convertPdf', 10, 3);
-add_action('init', 'utmCookie');
+add_action('init', 'saveUtmToCookie');
 
 
 //theme configuration
