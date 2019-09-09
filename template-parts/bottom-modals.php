@@ -56,7 +56,7 @@
                     <?php trans('Enter your information in order to receive the file.'); ?>
                 </div>
             </div>
-            <?php utmInputs();?>
+            <?php utmInputs(); ?>
         </form>
         <form action="#" data-type="sub" class="modal-sub ajaxForm" novalidate>
             <h2 class="modal-sub__title"><?php trans('Sign up'); ?></h2>
@@ -265,9 +265,8 @@
                     </li>
                 </ul>
             </div>
-            <?php utmInputs();?>
+            <?php utmInputs(); ?>
         </form>
         <?php get_template_part('template-parts/expertise', 'modal'); ?>
-        <?php get_template_part('template-parts/vacancies', 'modal'); ?>
     </div>
 </div>
