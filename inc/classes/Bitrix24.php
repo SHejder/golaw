@@ -31,8 +31,8 @@ class Bitrix24
             'NAME' => $data['name'],
             'STATUS_ID' => 'NEW',
             'OPENED' => 'Y',
-            'PHONE' => array(array("VALUE" => $data['phone'], "VALUE_TYPE" => "WORK")),
-            'EMAIL' => array(array("VALUE" => $data['email'], "VALUE_TYPE" => "WORK")),
+            'PHONE' => array(array("VALUE" => isset($data['phone'])?$data['phone']:'', "VALUE_TYPE" => "WORK")),
+            'EMAIL' => array(array("VALUE" => isset($data['email'])?$data['email']:'', "VALUE_TYPE" => "WORK")),
             'COMMENTS' => $data['message'],
         );
         if (isset($data['utm_source'])) $fields['UTM_SOURCE'] = $data['utm_source'];

@@ -257,7 +257,7 @@ function utmInputs()
 {
     if (isset($_GET['utm_source']) && !isset($_COOKIE['utm_source'])) {
         $utm = $_GET;
-    } elseif (!isset($_GET['utm_source'])) {
+    } elseif (isset($_COOKIE['utm_source'])) {
         isset($_COOKIE['utm_source']) ? $utm['utm_source'] = $_COOKIE['utm_source'] : null;
         isset($_COOKIE['utm_content']) ? $utm['utm_content'] = $_COOKIE['utm_content'] : null;
         isset($_COOKIE['utm_medium']) ? $utm['utm_medium'] = $_COOKIE['utm_medium'] : null;
