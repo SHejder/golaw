@@ -8,7 +8,7 @@ function modalForm()
     $email = htmlspecialchars($_POST['email']);
     $name = htmlspecialchars($_POST['name']);
     isset($_POST['message'])? $text = htmlspecialchars($_POST['message']):$text = '';
-    if(isset($_POST['post_id'])) $digest = get_field('digest_pdf', $_POST['post_id']);
+    if(isset($_POST['post_id'])) $digest = get_field('digest_pdf', htmlspecialchars($_POST['post_id']));
 
 
     if (!empty($_POST['name'])) $message .= "Name: {$name}\n";
