@@ -14,7 +14,7 @@ if(!empty($category)){
 <div class="container">
     <div class="header-page">
         <h1 class="header-page__title<?= isset($article) ? ' header-page__title_article' : ''; ?>">
-            <?php  dt_get_title(); ?>
+            <?php dt_get_title(); ?>
         </h1>
         <?php
             if ( function_exists('yoast_breadcrumb') ) {

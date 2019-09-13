@@ -32,16 +32,16 @@ function dt_get_title()
     if (!is_front_page()) {
         if (is_home() || is_singular()) {
             single_post_title();
+        } elseif (is_year() || is_archive()) {
+            echo get_the_archive_title();
+        } elseif (is_category() || is_tax()) {
+            single_cat_title();
+        } elseif (is_search()) {
+            trans('Search');
         }
-    } elseif (is_front_page()) {
+    } else {
         preg_match_all('/\w{3,}|\w{1,2}\s\w{3,}/iu', single_post_title('', false), $words);
         echo implode('<br>', $words[0]);
-    } elseif (is_year() || is_archive()) {
-        echo get_the_archive_title();
-    } elseif (is_category() || is_tax()) {
-        single_cat_title();
-    } elseif (is_search()) {
-        trans('Search');
     }
 }
 
@@ -206,19 +206,22 @@ function contentSlider()
                             </div>
                             <div class="slider-pagin slider-pagin_article"></div>';
         $slides = '<div class="swiper-wrapper slider__wrapper">';
-        foreach ($images as $image) {
-            $slides .= '<div class="swiper-slide slider__item">
+        if (isset($images) && !empty($images)) {
+            foreach ($images as $image) {
+                $slides .= '<div class="swiper-slide slider__item">
                             <div class="atl-slide">
                                 <div class="atl-slide__wrap-img">
                                     <img src="' . $image['slide'] . '" alt="some-alt">
                                 </div>
                             </div>
                         </div>';
+            }
         }
         $slides .= '</div>';
         $slider = '<div class="swiper-container slider slider_article">' . $slides . $slider_controls . '</div>';
         return $slider;
     }
+    return false;
 }
 
 function content()

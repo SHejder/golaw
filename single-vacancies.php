@@ -17,18 +17,22 @@ if (have_posts()):; ?>
         <section class="policy-sect">
             <div class="container">
                 <div class="modal-job__text-content">
-                    <h3><?php trans('Key requirements');?></h3>
-                    <ul>
-                        <?php foreach ($requirements as $requirement):?>
-                            <li><?= $requirement['requirement'];?></li>
-                        <?php endforeach;?>
-                    </ul>
-                    <h3><?php trans('Personal qualities');?></h3>
-                    <ul>
-                        <?php foreach ($qualities as $quality):?>
-                            <li><?= $quality['personal_qualitie'];?></li>
-                        <?php endforeach;?>
-                    </ul>
+                    <?php if (isset($requirements)&&!empty($requirements)): ?>
+                        <h3><?php trans('Key requirements'); ?></h3>
+                        <ul>
+                            <?php foreach ($requirements as $requirement): ?>
+                                <li><?= $requirement['requirement']; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                    <?php if (isset($qualities)&&!empty($qualities)): ?>
+                        <h3><?php trans('Personal qualities'); ?></h3>
+                        <ul>
+                            <?php foreach ($qualities as $quality): ?>
+                                <li><?= $quality['personal_qualitie']; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
                     <?php content();?>
                 </div>
             </div>

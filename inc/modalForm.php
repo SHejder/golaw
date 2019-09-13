@@ -44,7 +44,7 @@ function sendDataToCRM($name, $email, $text)
         'name' => $name,
         'email' => $email,
         'message' => $text,
-        'types' => $_POST['type']
+        'types' => isset($_POST['type'])?$_POST['type']:'',
     );
     if(isset($_POST['utm_source'])) $data['utm_source'] = $_POST['utm_source'];
     if(isset($_POST['utm_content'])) $data['utm_content'] = $_POST['utm_content'];
