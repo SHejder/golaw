@@ -12,6 +12,5 @@ $locations = get_terms('location');?>
         </div>
     </div>
 </section>
+<?php get_template_part('template-parts/vacancies', 'modal'); ?>
 <?php get_footer();
-
-
