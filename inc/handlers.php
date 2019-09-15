@@ -5,6 +5,24 @@ use classes\SidebarMenu;
 use classes\pdf\Pdf;
 use classes\pdf\LocalPdf;
 use Mpdf\Mpdf;
+/**
+ * PHP session enable
+ */
+function start_session()
+{
+    if (!session_id()) {
+        session_start();
+    }
+}
+
+/**
+ * End session
+ */
+function end_session()
+{
+    session_destroy();
+}
+
 
 /**
  * @param string $menu_id
@@ -82,24 +100,6 @@ function cut_wpseo_breadcrumb_last($link_output)
     }
 
     return $link_output;
-}
-
-/**
- * PHP session enable
- */
-function start_session()
-{
-    if (!session_id()) {
-        session_start();
-    }
-}
-
-/**
- * End session
- */
-function end_session()
-{
-    session_destroy();
 }
 
 /**

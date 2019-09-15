@@ -34,8 +34,10 @@ if (have_posts()):
                                         </h2>
                                         <p class="lawyer-ab__position">
                                             <?php $items = [];
-                                            foreach ($description as $item) {
-                                                array_push($items, $item['item']);
+                                            if(!empty($description)){
+                                                foreach ($description as $item) {
+                                                    array_push($items, $item['item']);
+                                                }
                                             };
                                             echo implode(', ', $items);
                                             ?>

@@ -61,7 +61,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), '7.1', true);
     wp_enqueue_script('function', get_template_directory_uri() . '/js/function.js', 'main', '6.1', true);
 });
-add_action('save_post_people', 'convertPdf', 10, 3);
+add_action('save_post_people', 'savePDF', 10, 3);
 add_action('init', 'saveUtmToCookie');
 
 
@@ -85,7 +85,6 @@ add_shortcode('block','blockWrapper');
 add_shortcode('slider','contentSlider');
 
 
-add_action( 'save_post_people', 'savePDF', 10, 3 );
 if(function_exists('add_image_size')){
     add_image_size('post', 384, 256, true);
     add_image_size('people', 280, 268);

@@ -1,11 +1,14 @@
-<?php $recognitions = get_field('recognitions');
-$description = get_field('description');; ?>
+<?php
+if (function_exists('get_field')) {
+    $recognitions = get_field('recognitions');
+    $description = get_field('description');
+}; ?>
 <div class="overview__wrap-head-main">
-    <?php if(has_post_thumbnail()):?>
+    <?php if (has_post_thumbnail()): ?>
         <figure class="overview__wrap-img">
-            <?php the_post_thumbnail('people', array('alt'=> get_the_title()));?>
+            <?php the_post_thumbnail('people', array('alt' => get_the_title())); ?>
         </figure>
-    <?php endif;?>
+    <?php endif; ?>
     <div class="overview__wrap-about">
         <div class="overview__wrap-name-pos">
             <h3 class="overview__name">
@@ -13,14 +16,16 @@ $description = get_field('description');; ?>
                     <?php the_title() ?>
                 </a>
             </h3>
-            <p class="overview__position">
-                <?php $items = [];
-                foreach ($description as $item) {
-                    array_push($items, $item['item']);
-                };
-                echo implode(', ', $items);
-                ?>
-            </p>
+            <?php if (!empty($description)): ?>
+                <p class="overview__position">
+                    <?php $items = [];
+                    foreach ($description as $item) {
+                        array_push($items, $item['item']);
+                    };
+                    echo implode(', ', $items);
+                    ?>
+                </p>
+            <?php endif; ?>
         </div>
         <?php if ($recognitions): ?>
             <ul class="overview__wrap-rec">
@@ -35,7 +40,7 @@ $description = get_field('description');; ?>
             </ul>
         <?php endif; ?>
         <div class="overview__btns">
-            <?php get_template_part('template-parts/people','buttons');?>
+            <?php get_template_part('template-parts/people', 'buttons'); ?>
         </div>
     </div>
 </div>

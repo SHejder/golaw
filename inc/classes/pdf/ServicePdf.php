@@ -28,9 +28,11 @@ class ServicePdf extends ArticlePdf implements Strategy
     {
         $casesHTML = '';
         $cases = get_field('expertise_cases', $post_id);
-        foreach ($cases as $case) {
-            $casesHTML .= '<h3>' . wpm_translate_string($case['case_title']) . '</h3>' .
-                '<p>' . wpm_translate_string($case['text']) . ' </p>';
+        if (!empty($cases)) {
+            foreach ($cases as $case) {
+                $casesHTML .= '<h3>' . wpm_translate_string($case['case_title']) . '</h3>' .
+                    '<p>' . wpm_translate_string($case['text']) . ' </p>';
+            }
         }
         return $casesHTML;
 

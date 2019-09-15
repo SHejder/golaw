@@ -79,7 +79,6 @@
     </div>
     <div class="lawyer-ab__text-content">
         <?= wpm_translate_string($post->post_content);?>
-        <div style="page-break-before: always;"></div>
         <h3><?php trans('Practices');?></h3>
         <ul>
             <?= $data['practiceHTML'];?>

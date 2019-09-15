@@ -5,6 +5,7 @@ Template Post Type: expertise
 */
 has_term('', 'practice') ? $taxonomy = 'practice' : $taxonomy = 'sector';
 get_header('expertise');
+$parents = get_post_ancestors(get_the_ID());
 if (have_posts()):; ?>
     <?php while (have_posts()): the_post() ?>
         <div class="modal-page">
@@ -26,7 +27,7 @@ if (have_posts()):; ?>
                     </div>
                     <div class="sub-practice__wrap sub-practice__wrap_right">
                         <ul class="sub-practice__offers sc-ofrs">
-                            <?php getExpertiseList('column', $taxonomy, array(get_the_ID()), true); ?>
+                            <?php getExpertiseList('column', $taxonomy, array(get_the_ID()), true, $parents[0]); ?>
                         </ul>
                     </div>
                 </div>
@@ -37,5 +38,4 @@ if (have_posts()):; ?>
 <?php
 get_sidebar();
 get_template_part('template-parts/bottom', 'modals');
-//get_template_part('template-parts/bottom', 'cookie');
 wp_footer(); ?>
