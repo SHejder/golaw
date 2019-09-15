@@ -4,31 +4,21 @@ Template Name: Expertise
 Template Post Type: expertise
 */
 has_term('', 'practice') ? $taxonomy = 'practice' : $taxonomy = 'sector';
-$cases = get_field('expertise_cases');
-$lawyers = get_field('expertise_lawyers');
-$practises = get_the_terms(get_field('expertise_head'), 'practice');
-$sectors = get_the_terms(get_field('expertise_head'), 'sector');
-$testimonials = get_field('expertise_testimonials');
+if (function_exists('get_field')) {
+    $cases = get_field('expertise_cases');
+    $lawyers = get_field('expertise_lawyers');
+    $related_tax = get_field('related_taxonomies');
+    $testimonials = get_field('expertise_testimonials');
+}
 global $people_link;
 get_header('post');
 global $wp_query; ?>
     <section class="service-sect">
         <div class="container">
             <h2 class="service-sect__title">
-                <?php trans('Services'); ?>
+                <?php if(function_exists('trans')) trans('Services'); ?>
             </h2>
-            <div class="service op-cont">
-                <?php getExpertiseList('raw', $taxonomy, null, true); ?>
-            </div>
-            <?php if ($wp_query->found_posts > 3): ?>
-                <button class="service__more ach-m">
-                    <span>+ More</span>
-                    <span>- Less</span>
-                    <svg width="242" height="64" viewBox="0 0 242 64" xmlns="http://www.w3.org/2000/svg">
-                        <rect x='0' y='0' fill='none' width='242' height='64'/>
-                    </svg>
-                </button>
-            <?php endif; ?>
+                <?php if(function_exists('getExpertiseList')) getExpertiseList('raw', null, null, true, get_the_ID()); ?>
         </div>
     </section>
     <section class="overview-sect">
@@ -54,31 +44,23 @@ global $wp_query; ?>
                 <?php if (function_exists('getLawyerSidebar') && get_field('expertise_head')):; ?>
                     <div class="overview__wrap_right">
                         <div class="overview__head">
-                            <?php getLawyerSidebar(array(get_field('expertise_head')), 'publication'); ?>
+                            <?php if(function_exists('getLawyerSidebar')) getLawyerSidebar(array(get_field('expertise_head')), 'publication'); ?>
                         </div>
-                        <div class="overview__tags">
-                            <h3 class="overview__tag-title"><?php trans('Related ' . (($taxonomy === 'sector')?'industrial ':''). $taxonomy. 's') ?></h3>
-                            <ul class="overview__wrap-tag">
-                                <?php $args = [
-                                    'post_type' => 'people',
-                                    'p' => get_field('expertise_head')
-                                ];
-                                $people = new WP_Query($args);
-                                if ($people->have_posts()):?>
-                                    <?php while ($people->have_posts()):$people->the_post(); ?>
-                                        <?php $terms = get_field('people_'.$taxonomy.'s');
-                                        foreach ($terms as $term):?>
-                                            <li class="overview__tag-item"><a href="<?php the_permalink($term->ID);?>"><?= wpm_translate_string($term->post_title);?></a></li>
-                                        <?php endforeach;?>
-                                    <?php wp_reset_postdata();
-                                    endwhile; ?>
-                                <?php endif; ?>
-                            </ul>
-                        </div>
-
+                        <?php if (!empty($related_tax)): ?>
+                            <div class="overview__tags">
+                                <h3 class="overview__tag-title"><?php trans('Related ' . (($taxonomy === 'sector') ? 'industrial ' : '') . $taxonomy . 's') ?></h3>
+                                <ul class="overview__wrap-tag">
+                                    <?php foreach ($related_tax as $tax) : ?>
+                                        <li class="overview__tag-item"><a
+                                                    href="<?php the_permalink($tax->ID); ?>"><?= wpm_translate_string($tax->post_title); ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
                         <div class="overview__print-share">
-                            <form action="<?= get_permalink(get_the_ID());?>" method="post">
-                                <button type="submit" class="overview__print" >
+                            <form action="<?= get_permalink(get_the_ID()); ?>" method="post">
+                                <button type="submit" class="overview__print">
                                         <span>
                                             <i>
                                                 <svg class="overview__pr-svg" viewBox="0 0 16 16" fill="none"
@@ -95,7 +77,7 @@ global $wp_query; ?>
                                         <rect x='0' y='0' fill='none' width='174' height='64'/>
                                     </svg>
                                 </button>
-                                <input type="hidden" name="post_id" value="<?php the_ID();?>">
+                                <input type="hidden" name="post_id" value="<?php the_ID(); ?>">
                                 <input type="hidden" name="get_pdf" value="service">
                             </form>
                             <ul class="overview__share">
@@ -120,7 +102,9 @@ global $wp_query; ?>
                                             $summary = get_the_excerpt();
                                             $url = get_permalink();
                                             ?>
-                                            <a title="Share to Facebook" target="_parent" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>"   class="overview__sh-link sh-link">
+                                            <a title="Share to Facebook" target="_parent"
+                                               href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>"
+                                               class="overview__sh-link sh-link">
                                                 <i>
                                                     <svg class="overview__sh-svg overview__sh-svg_fb"
                                                          viewBox="0 0 7 14" fill="none"
@@ -132,7 +116,9 @@ global $wp_query; ?>
                                             </a>
                                         </li>
                                         <li class="overview__sh-item">
-                                            <a title="Share to Twitter" href="http://twitter.com/share?text=<?php echo $title; ?>&via=twitterfeed&related=truemisha&url=<?php echo $url; ?>" class="overview__sh-link sh-link">
+                                            <a title="Share to Twitter"
+                                               href="http://twitter.com/share?text=<?php echo $title; ?>&via=twitterfeed&related=truemisha&url=<?php echo $url; ?>"
+                                               class="overview__sh-link sh-link">
                                                 <i>
                                                     <svg class="overview__sh-svg overview__sh-svg_tw"
                                                          viewBox="0 0 15 12" fill="none"
@@ -144,7 +130,9 @@ global $wp_query; ?>
                                             </a>
                                         </li>
                                         <li class="overview__sh-item">
-                                            <a title="Share to Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&title=<?php echo urlencode( $title ); ?>&source=<?php echo get_home_url();?>" class="overview__sh-link sh-link">
+                                            <a title="Share to Linkedin"
+                                               href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&title=<?php echo urlencode($title); ?>&source=<?php echo get_home_url(); ?>"
+                                               class="overview__sh-link sh-link">
                                                 <i>
                                                     <svg class="overview__sh-svg overview__sh-svg_in"
                                                          viewBox="0 0 15 14" fill="none"
@@ -168,11 +156,11 @@ global $wp_query; ?>
             </div>
         </div>
     </section>
-<?php if ($cases):?>
+<?php if ($cases): ?>
     <section class="rep-cases-sect">
         <div class="container">
             <h2 class="rep-cases__title">
-                <?php trans('Representative cases'); ?>
+                <?php if(function_exists('trans')) trans('Representative cases'); ?>
             </h2>
             <ul class="rep-cases__wrap">
                 <?php foreach ($cases as $case) : ?>
@@ -186,26 +174,26 @@ global $wp_query; ?>
             </ul>
         </div>
     </section>
-<?php endif;?>
-    <?php if ($lawyers):?>
+<?php endif; ?>
+<?php if ($lawyers): ?>
     <section class="key-law-sect key-law_single-practice">
         <div class="container">
             <h2 class="key-law__title">
-                <?php trans('Key lawyers') ?>
+                <?php if(function_exists('trans')) trans('Key lawyers') ?>
             </h2>
             <div class="layers">
-                <?php getHomeLawyers($lawyers); ?>
+                <?php if(function_exists('getHomeLawyers')) getHomeLawyers($lawyers); ?>
             </div>
             <a href="<?= wpm_translate_url($people_link); ?>" class="key-law__btn">
-                <span><?php trans('find a professional'); ?></span>
+                <span><?php if(function_exists('trans')) trans('find a professional'); ?></span>
                 <svg width="292" height="64" viewBox="0 0 292 64" xmlns="http://www.w3.org/2000/svg">
                     <rect x='0' y='0' fill='none' width='292' height='64'/>
                 </svg>
             </a>
         </div>
     </section>
-    <?php endif;?>
-    <?php getTestimonials($testimonials);?>
+<?php endif; ?>
+<?php if(function_exists('getTestimonials')) getTestimonials($testimonials); ?>
     <section class="home-insights home-insights_single-practice">
         <?php get_template_part('template-parts/insights', 'home'); ?>
     </section>
