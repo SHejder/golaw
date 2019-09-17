@@ -4,7 +4,9 @@ use classes\Kama_Contents;
 use classes\SidebarMenu;
 use classes\pdf\Pdf;
 use classes\pdf\LocalPdf;
+use classes\Transliterator;
 use Mpdf\Mpdf;
+
 /**
  * PHP session enable
  */
@@ -127,30 +129,9 @@ if (function_exists('acf_add_options_page')) acf_add_options_page();
  */
 function trans(string $string, bool $echo = true)
 {
-    $dictionary = include 'translation/dictionary.php';
-    if (isset($dictionary[$string]) && $dictionary[$string]['en'] !== '') {
-        $string = strtolower($string);
-//        $dictionary = array_unique($dictionary);
-//        foreach ($dictionary as $k => $v){
-//            $str = strtolower($k).print_r($v, true);
-//            file_put_contents(get_template_directory().'/trans.txt', $str, FILE_APPEND);
-//
-//        }
-//        file_put_contents(get_template_directory().'/trans.txt', $string, FILE_APPEND);
-        $out = "";
-        foreach ($dictionary[$string] as $k => $v) {
-            $out .= "[:{$k}]{$v}";
-        }
-        $out .= "[:]";
-        $out = wpm_translate_string($out);
-    } else {
-        $out = $string;
-    }
-    if ($echo) {
-        echo $out;
-    } else {
-        return $out;
-    }
+    $transliterator = new Transliterator($string);
+    $transliterator->getLocalString($echo);
+
 }
 
 //Contents list
