@@ -11,7 +11,6 @@ if (in_array($id, $articles)) {
         $article = 0;
     }
 };?>
-
 <header class="header-inside header-inside_search-bar header-inside_people">
     <div class="container">
         <div class="header-page">

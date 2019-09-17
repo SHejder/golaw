@@ -119,7 +119,7 @@ if (have_posts()):
                                                             class="overview__pr-path"/>
                                                 </svg>
                                             </i>
-                                            Printable PDF
+                                            <?php trans('Printable PDF'); ?>
                                         </span>
                                     <svg width="174" height="64" viewBox="0 0 174 64"
                                          xmlns="http://www.w3.org/2000/svg">

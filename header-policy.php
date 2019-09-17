@@ -1,5 +1,5 @@
 <?php get_template_part(HEADER_TMP_PATH, 'meta'); ?>
-<body class="page-policy">
+<body class="page-policy page-lang-<?= wpm_get_language();?>">
 <nav class="navigation nav-policy">
     <div class="container">
         <div class="logo">

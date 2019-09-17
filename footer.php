@@ -44,12 +44,12 @@ global $contacts_link;?>
                             ]); ?>
                             <li>
                                 <span class="subs">
-                                    <b>Subscribe to newsletters</b>
+                                    <b><?php trans('Subscribe to newsletters');?></b>
                                 </span>
                             </li>
                             <li>
                                 <span class="exp">
-                                    <b>Our Expertise</b>
+                                    <b><?php trans('Our Expertise');?></b>
                                 </span>
                             </li>
                         </ul>
@@ -64,23 +64,23 @@ global $contacts_link;?>
         <div class="footer__wrap_bot">
             <div class="footer__copy">
                 <p class="footer__copy_text">
-                    &copy; Copyright <?= date('Y'); ?>
+                    &copy; <?php trans('Copyright');?> <?= date('Y'); ?>
                 </p>
             </div>
             <ul class="footer__other">
                 <li class="footer__item_pol">
                     <a href="<?= get_permalink(366); ?>" class="footer__link-pl">
-                        <span>Sitemap</span>
+                        <span><?php trans('Sitemap');?></span>
                     </a>
                 </li>
                 <li class="footer__item_pol">
                     <a href="<?= get_permalink(362); ?>" class="footer__link-pl">
-                        <span>Privacy Policy</span>
+                        <span><?php trans('Privacy Policy');?></span>
                     </a>
                 </li>
                 <li class="footer__item_pol">
                     <a href="<?= get_permalink(364); ?>" class="footer__link-pl">
-                        <span>Cookies Policy</span>
+                        <span><?php trans('Cookies Policy');?></span>
                     </a>
                 </li>
             </ul>

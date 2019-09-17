@@ -3,7 +3,7 @@ get_template_part(HEADER_TMP_PATH, 'meta');
 if (function_exists('get_field')){
     $contacts = get_field('contacts');
 };?>
-<body class="page-contact">
+<body class="page-contact page-lang-<?= wpm_get_language();?>">
 <nav class="navigation">
     <div class="container">
         <div class="logo">

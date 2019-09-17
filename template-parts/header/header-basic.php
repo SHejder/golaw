@@ -1,5 +1,5 @@
 <?php get_template_part(HEADER_TMP_PATH, 'meta');?>
-<body <?= is_front_page() ? 'class="home"':'';?>>
+<body class="page-lang-<?= wpm_get_language();?><?= is_front_page() ? ' home':'';?>">
 <nav class="navigation">
     <div class="container">
         <div class="logo">
@@ -25,7 +25,7 @@
                     <div class="nav-search__wrap">
                         <input type="text"  class="nav-search__input header-search-input" data-head-search
                                data-mod-text="<?php trans('Enter keyword');?>..."
-                               placeholder="<?php trans('Search for information or attorney by a keyword');?>" value="<?php echo get_search_query() ?>">
+                               placeholder="<?php trans('Search by keyword');?>" value="<?php echo get_search_query() ?>">
                     </div>
                     <button type="submit" class="nav-search__btn">
                         <svg class="nav-search__svg" viewBox="0 0 24 24" fill="none"

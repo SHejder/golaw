@@ -5,15 +5,15 @@ if(!empty($category)){
     $articles = array(6, 7, 8);
     if (in_array($id, $articles)) {
         if (is_single() && in_category($articles)){
-            $article = 1;
+            $article = true;
         } else {
-            $article = 0;
+            $article = false;
         }
 }
 };?>
 <div class="container">
     <div class="header-page">
-        <h1 class="header-page__title<?= isset($article) ? ' header-page__title_article' : ''; ?>">
+        <h1 class="header-page__title<?= (isset($article)&&$article) ? ' header-page__title_article' : ''; ?>">
             <?php dt_get_title(); ?>
         </h1>
         <?php
