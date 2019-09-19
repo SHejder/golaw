@@ -4,7 +4,7 @@ use classes\Kama_Contents;
 use classes\SidebarMenu;
 use classes\pdf\Pdf;
 use classes\pdf\LocalPdf;
-use classes\Transliterator;
+use classes\translator\Transliterator;
 use Mpdf\Mpdf;
 
 /**
