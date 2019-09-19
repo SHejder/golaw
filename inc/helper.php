@@ -4,7 +4,7 @@ use classes\Kama_Contents;
 use classes\SidebarMenu;
 use classes\pdf\Pdf;
 use classes\pdf\LocalPdf;
-use classes\translator\Transliterator;
+use classes\translator\Translator;
 use Mpdf\Mpdf;
 
 /**
@@ -129,7 +129,7 @@ if (function_exists('acf_add_options_page')) acf_add_options_page();
  */
 function trans(string $string, bool $echo = true)
 {
-    $transliterator = new Transliterator($string);
+    $transliterator = new Translator($string);
     $out = $transliterator->getLocalString();
     if($echo){
         echo $out;

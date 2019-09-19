@@ -2,7 +2,7 @@
 namespace classes\translator;
 
 
-class Transliterator
+class Translator
 {
     private $input;
     private $out;
