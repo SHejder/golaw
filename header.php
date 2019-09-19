@@ -22,7 +22,8 @@ if (is_front_page()) {
     $type = 'insights';
 } elseif (is_post_type_archive('people')) {
     $type = 'people';
-} elseif (is_page_template('template-service.php')) {
+} elseif (is_page_template('template-service.php') ||
+    is_post_type_archive('expertise')) {
     $body_classes .= ' page-policy';
     $body_classes .= ' page-exp';
     $nav_classes .= ' nav-policy';

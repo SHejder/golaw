@@ -1,8 +1,4 @@
 <?php
-/*
-Template Name: Expertise
-Template Post Type: page
-*/
 get_header();?>
     <div class="modals modal-page active-static">
         <div class="container">
@@ -12,5 +8,4 @@ get_header();?>
 <?php
 get_sidebar();
 get_template_part('template-parts/bottom/bottom', 'modals');
-//get_template_part('template-parts/bottom/bottom', 'cookie');
 wp_footer();
