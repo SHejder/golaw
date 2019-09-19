@@ -8,7 +8,7 @@ use Mpdf\Mpdf;
 require_once __DIR__ . '/inc/vendor/autoload.php';
 
 include 'inc/env.php';
-include 'inc/handlers.php';
+include 'inc/helper.php';
 include 'inc/lang-switcher.php';
 include 'inc/show-selects.php';
 include 'inc/loadmore.php';
