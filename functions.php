@@ -34,6 +34,7 @@ add_filter('the_content', 'kama_contents_shortcode', 20);
 add_filter('get_the_archive_title', function ($title) {
     return preg_replace('~^[^:]+: ~', '', $title);
 });
+add_filter( 'template_include', 'page_template_path', 99 );
 
 //actions
 //loadmore ajax

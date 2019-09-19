@@ -1,6 +1,49 @@
-<?php get_template_part(HEADER_TMP_PATH, 'meta'); ?>
-<body class="page-policy page-exp page-lang-<?= wpm_get_language();?>">
-<nav class="navigation nav-policy">
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../img/logo/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/logo/favicon.ico" type="image/x-icon">
+    <?php wp_head(); ?>
+    <?php if (is_page(12)):?>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONeJojxMq_7-PIIds7FCrrmUXmF1wNis"></script>
+    <?php endif;?>
+</head>
+<?php
+$body_classes = 'page-lang-' . wpm_get_language();
+$nav_classes = 'navigation';
+
+if (is_front_page()) {
+    $body_classes .= ' home';
+    $type = 'home';
+} elseif (is_home()) {
+    $type = 'insights';
+} elseif (is_post_type_archive('people')) {
+    $type = 'people';
+} elseif (is_page_template('template-service.php')) {
+    $body_classes .= ' page-policy';
+    $body_classes .= ' page-exp';
+    $nav_classes .= ' nav-policy';
+} elseif (is_page_template('template-policy.php')) {
+    $body_classes .= ' page-policy';
+    $nav_classes .= ' nav-policy';
+} elseif (is_page_template('template-contacts.php')) {
+    $body_classes .= ' page-contact';
+    $type = 'contacts';
+} else {
+    $type = 'default';
+};
+
+if(isset($type)){
+    ob_start();
+    get_template_part(HEADER_TMP_PATH,$type);
+    $header = ob_get_clean();
+}
+?>
+<body class="<?= $body_classes; ?>">
+<nav class="<?= $nav_classes; ?>">
     <div class="container">
         <div class="logo">
             <a href="<?php echo get_home_url(); ?>" class="logo__link">
@@ -21,11 +64,12 @@
         ]); ?>
         <div class="nav-btns">
             <div class="nav-btns__wrap">
-                <form  role="search" method="get" action="<?php echo home_url( '/' ) ?>" class="nav-search header-search">
+                <form role="search" method="get" action="<?php echo home_url('/') ?>" class="nav-search header-search">
                     <div class="nav-search__wrap">
-                        <input type="text"  class="nav-search__input header-search-input" data-head-search
-                               data-mod-text="<?php trans('Enter keyword');?>..."
-                               placeholder="<?php trans('Search for information or attorney by a keyword');?>" value="<?php echo get_search_query() ?>">
+                        <input type="text" class="nav-search__input header-search-input" data-head-search
+                               data-mod-text="<?php trans('Enter keyword'); ?>..."
+                               placeholder="<?php trans('Search by keyword'); ?>"
+                               value="<?php echo get_search_query() ?>">
                     </div>
                     <button type="submit" class="nav-search__btn">
                         <svg class="nav-search__svg" viewBox="0 0 24 24" fill="none"
@@ -55,3 +99,4 @@
     <div class="nav-progress"></div>
 </nav>
 <main class="main">
+<?= isset($header) ? $header:'';?>

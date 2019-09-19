@@ -1,5 +1,5 @@
 <?php
-get_header('post');
+get_header();
 global $query_string, $wp_query; ?>
     <section class="search-criteria-sect">
         <div class="container">

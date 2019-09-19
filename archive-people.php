@@ -1,5 +1,5 @@
 <?php
-get_header('peoples');
+get_header();
 global $wp_query;?>
 <div id="ajaxContent">
     <?php

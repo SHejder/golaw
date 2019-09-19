@@ -1,5 +1,5 @@
 <?php
-get_header('policy');
+get_header();
 if (function_exists('get_field')){
     $requirements = get_field('key_requirements');
     $qualities = get_field('personal_qualities');

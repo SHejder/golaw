@@ -1,5 +1,5 @@
 <?php
-get_header('home');
+get_header();
 global $people_link; ?>
     <section class="home-insights">
         <?php get_template_part('template-parts/insights/insights', 'home'); ?>

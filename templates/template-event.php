@@ -5,7 +5,7 @@ Template Post Type: post
 
  */
 global $insights_link;
-get_header('post');
+get_header();
 $category = get_the_category();
 if (function_exists('get_field')){
     $topics = get_field('related_topics');

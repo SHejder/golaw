@@ -1,6 +1,6 @@
 <?php
 global $wp_query, $insights_link;
-get_header('insights'); ?>
+get_header(); ?>
     <div id="ajaxContent">
         <?php
         if (isset($_SESSION['insights'])) {

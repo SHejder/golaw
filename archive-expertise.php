@@ -3,7 +3,7 @@
 Template Name: Expertise
 Template Post Type: page
 */
-get_header('expertise');?>
+get_header();?>
     <div class="modals modal-page active-static">
         <div class="container">
             <?php get_template_part('template-parts/expertise/expertise','modal');?>

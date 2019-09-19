@@ -7,7 +7,7 @@ if (function_exists('get_field')) {
     $intro = get_field('intro');
     $cases = get_field('cases');
 }
-get_header('post'); ?>
+get_header(); ?>
     <section class="approach-sect">
         <div class="container">
             <h2 class="approach__title">

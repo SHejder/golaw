@@ -2,7 +2,7 @@
 global $insights_link;
 $category = get_the_category();
 $tags = get_the_tags();
-get_header('post');
+get_header();
 if (function_exists('get_field')) {
     $insights_link = get_field('insights_page', 'option');
     $topics = get_field('related_topics');

@@ -1,5 +1,5 @@
 <?php
-get_header('policy');
+get_header();
 if (have_posts()):; ?>
     <header class="header-inside">
         <div class="container">

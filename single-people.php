@@ -1,6 +1,6 @@
 <?php
 
-get_header('post');
+get_header();
 if (function_exists('get_field')) {
     $contacts = get_field('contacts');
     $description = get_field('description');

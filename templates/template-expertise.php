@@ -11,7 +11,7 @@ if (function_exists('get_field')) {
     $testimonials = get_field('expertise_testimonials');
 }
 global $people_link;
-get_header('post');
+get_header();
 global $wp_query; ?>
     <section class="service-sect">
         <div class="container">

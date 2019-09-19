@@ -3,7 +3,7 @@
 Template Name: Vacancy
 Template Post Type: page
 */
-get_header('post');
+get_header();
 if (function_exists('get_field')) {
     $quote = get_field('quote');
     $email = get_field('email_for_cv');

@@ -4,7 +4,7 @@ Template Name: Policy
 Template Post Type: page
 */
 
-get_header('policy');
+get_header();
 if (have_posts()):; ?>
     <header class="header-inside">
         <div class="container">
@@ -13,7 +13,6 @@ if (have_posts()):; ?>
             </div>
         </div>
     </header>
-
     <?php while (have_posts()): the_post() ?>
         <section class="policy-sect">
             <div class="container">

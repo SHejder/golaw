@@ -259,7 +259,9 @@ function utmInputs()
 
 }
 
-
-
-
-
+function page_template_path( $template ) {
+    if(is_page_template()){
+        $template = get_template_directory().'/templates/'.get_page_template_slug();
+    }
+    return $template;
+}

@@ -1,6 +1,6 @@
 <?php
 global $wp_query;
-get_header('post');?>
+get_header();?>
         <section class="search-ins-sect">
             <div class="container">
                 <div class="search-ins" >

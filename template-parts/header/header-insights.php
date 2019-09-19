@@ -1,4 +1,4 @@
-<?php get_template_part(HEADER_TMP_PATH, 'basic');
+<?php
 if ($_GET){
     unset($_SESSION['insights']);
     if (isset($_GET['t'])) $_SESSION['insights']['tag_id'] = $_GET['t'];

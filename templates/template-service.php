@@ -4,7 +4,7 @@ Template Name: Service
 Template Post Type: expertise
 */
 has_term('', 'practice') ? $taxonomy = 'practice' : $taxonomy = 'sector';
-get_header('expertise');
+get_header();
 $parents = get_post_ancestors(get_the_ID());
 if (have_posts()):; ?>
     <?php while (have_posts()): the_post() ?>

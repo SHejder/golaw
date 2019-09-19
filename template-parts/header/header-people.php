@@ -1,4 +1,4 @@
-<?php get_template_part(HEADER_TMP_PATH, 'basic');
+<?php
 if($_GET){
     unset($_SESSION['people']);
     if ($_GET['q']) $_SESSION['people']['s'] = $_GET['q'];

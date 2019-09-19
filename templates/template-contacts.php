@@ -3,7 +3,7 @@
 Template Name: Contacts
 Template Post Type: page
 */
-get_header('contacts');
+get_header();
 if (function_exists('get_field')){
     $contacts = get_field('contacts');
 };

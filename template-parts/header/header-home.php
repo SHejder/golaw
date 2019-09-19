@@ -1,4 +1,4 @@
-<?php get_template_part(HEADER_TMP_PATH, 'basic');
+<?php
 global $contacts_link, $people_link;?>
 <header class="header-hero">
     <img src="<?php header_image(); ?>" alt="image" class="header-hero__img">
