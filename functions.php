@@ -20,13 +20,19 @@ include 'inc/get-content.php';
 
 //filters
 remove_filter('the_excerpt', 'wpautop');
-add_filter('excerpt_more', function ($more) { return '...';});
-add_filter('excerpt_length', function () { return 25;});
+add_filter('excerpt_more', function ($more) {
+    return '...';
+});
+add_filter('excerpt_length', function () {
+    return 25;
+});
 add_filter('wpseo_breadcrumb_single_link', 'cut_wpseo_breadcrumb_last');
-add_filter('category_link', function ($slug) { return str_replace('category/', '', $slug);}, 99);
-add_filter( 'the_content', 'kama_contents_shortcode', 20 );
-add_filter( 'get_the_archive_title', function( $title ){
-    return preg_replace('~^[^:]+: ~', '', $title );
+add_filter('category_link', function ($slug) {
+    return str_replace('category/', '', $slug);
+}, 99);
+add_filter('the_content', 'kama_contents_shortcode', 20);
+add_filter('get_the_archive_title', function ($title) {
+    return preg_replace('~^[^:]+: ~', '', $title);
 });
 
 //actions
@@ -70,10 +76,10 @@ if (function_exists('add_theme_support')) {
     add_theme_support('menus');
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
-    add_theme_support('custom-header',array(
-        'default-image' => get_template_directory_uri().'/img/hero-bg.jpg',
+    add_theme_support('custom-header', array(
+        'default-image' => get_template_directory_uri() . '/img/hero-bg.jpg',
         'uploads' => true,
-        'flex-width'    => true,
+        'flex-width' => true,
         'height' => 1035,
         'width' => 1920,
     ));
@@ -81,21 +87,21 @@ if (function_exists('add_theme_support')) {
 }
 
 //shortcodes
-add_shortcode('block','blockWrapper');
-add_shortcode('slider','contentSlider');
+add_shortcode('block', 'blockWrapper');
+add_shortcode('slider', 'contentSlider');
 
 
-if(function_exists('add_image_size')){
+if (function_exists('add_image_size')) {
     add_image_size('post', 384, 256, true);
     add_image_size('people', 280, 268);
 }
 
 
-if(isset($_POST['get_pdf'])&& !empty($_POST['get_pdf'])){
+if (isset($_POST['get_pdf']) && !empty($_POST['get_pdf'])) {
     $pdf = new Pdf(new Mpdf());
-    if($_POST['get_pdf'] === 'article'){
+    if ($_POST['get_pdf'] === 'article') {
         $pdf->setStrategy(new ArticlePdf());
-    } else if($_POST['get_pdf'] === 'service'){
+    } else if ($_POST['get_pdf'] === 'service') {
         $pdf->setStrategy(new ServicePdf());
     }
     $pdf->savePDF(get_post($_POST['post_id']));

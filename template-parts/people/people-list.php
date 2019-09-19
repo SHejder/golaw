@@ -20,7 +20,7 @@
             </p>
         <?php endif; ?>
         <div class="search-law__btns">
-            <?php get_template_part('template-parts/people', 'buttons'); ?>
+            <?php get_template_part('template-parts/people/people', 'buttons'); ?>
         </div>
     </div>
 </div>

@@ -70,5 +70,5 @@ get_header('post'); ?>
         </div>
     </section>
 <?php getTestimonials(); ?>
-<?php get_template_part('template-parts/bottom', 'contacts');
+<?php get_template_part('template-parts/bottom/bottom', 'contacts');
 get_footer();

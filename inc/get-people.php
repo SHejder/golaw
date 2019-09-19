@@ -9,7 +9,7 @@ function getLawyerSidebar($id, $type){
     if ($posts->have_posts()) {
         while ($posts->have_posts()) {
             $posts->the_post();
-                get_template_part('template-parts/people', $type);
+                get_template_part('template-parts/people/people', $type);
         };
         wp_reset_postdata();
     };
@@ -26,7 +26,7 @@ function getHomeLawyers(array $include = null){
     if ($peoples->have_posts()) {
         while ($peoples->have_posts()) {
             $peoples->the_post();
-            get_template_part('template-parts/people', 'home');
+            get_template_part('template-parts/people/people', 'home');
         };
         wp_reset_postdata();
     };
@@ -69,14 +69,14 @@ function getLawyers(){
     if ($_POST['practice'] !== '0') $_SESSION['people']['results']['practice'] = $_POST['practice'];
     if ($_POST['location'] !== '0') $_SESSION['people']['results']['location'] = $_POST['location'];
     if ($_POST['sector'] !== '0') $_SESSION['people']['results']['sector'] = $_POST['sector'];
-    get_template_part('template-parts/people','filters');
+    get_template_part('template-parts/people/people','filters');
     echo '<section class="search-law-sect res-sect">
             <div class="container">';
                     if (have_posts()) {
                         echo '<div class="search-law">';
                         while (have_posts()) {
                             the_post();
-                            get_template_part('template-parts/people', 'list');
+                            get_template_part('template-parts/people/people', 'list');
                         }
                         echo '</div>';
                         wp_reset_postdata();

@@ -204,9 +204,9 @@ if (have_posts()):
                 </div>
             </div>
         </section>
-        <?php get_template_part('template-parts/insights', 'related'); ?>
+        <?php get_template_part('template-parts/insights/insights', 'related'); ?>
     <?php endwhile; ?>
 <?php endif; ?>
 <?php
-get_template_part('template-parts/bottom', 'subscribe');
+get_template_part('template-parts/bottom/bottom', 'subscribe');
 get_footer();

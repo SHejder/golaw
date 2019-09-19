@@ -8,14 +8,14 @@ global $wp_query;?>
 //    debug($args);
     query_posts($args);
     $_SESSION['people']['results']['count'] = $wp_query->found_posts;
-    get_template_part('template-parts/people','filters');
+    get_template_part('template-parts/people/people','filters');
     echo '<section class="search-law-sect res-sect">
             <div class="container">';
                     if (have_posts()) {
                         echo '<div class="search-law">';
                         while (have_posts()) {
                             the_post();
-                            get_template_part('template-parts/people', 'list');
+                            get_template_part('template-parts/people/people', 'list');
                         }
                         echo '</div>';
                         wp_reset_postdata();

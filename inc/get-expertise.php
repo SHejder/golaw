@@ -42,11 +42,11 @@ function getExpertiseList( string $type, $taxonomy = null, array $exclude = null
                 $services->the_post();
                 if (!$child){
                     if (get_post_ancestors(get_the_ID()) === array()){
-                        get_template_part('template-parts/expertise', $type);
+                        get_template_part('template-parts/expertise/expertise', $type);
                     }
                 } else {
                     if (get_post_ancestors(get_the_ID()) !== array()){
-                        get_template_part('template-parts/expertise', $type);
+                        get_template_part('template-parts/expertise/expertise', $type);
                     }
                 }
                 continue;

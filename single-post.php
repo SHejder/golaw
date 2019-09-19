@@ -180,6 +180,6 @@ if (function_exists('get_field')) {
         </div>
     </section>
 <?php
-get_template_part('template-parts/insights', 'related');
-get_template_part('template-parts/bottom', 'subscribe');
+get_template_part('template-parts/insights/insights', 'related');
+get_template_part('template-parts/bottom/bottom', 'subscribe');
 get_footer();

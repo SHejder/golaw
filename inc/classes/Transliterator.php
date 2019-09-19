@@ -17,7 +17,7 @@ class Transliterator
 
     }
 
-    public function getLocalString(bool $echo)
+    public function getLocalString()
     {
         $string = strtolower($this->getInput());
         $dictionary = $this->getDictionary();
@@ -26,13 +26,7 @@ class Transliterator
         } else {
             $this->saveNewString($dictionary, $string);
         }
-
-        if($echo){
-            echo $this->getOut();
-        } else {
-            return $this->getOut();
-        }
-
+        return $this->getOut();
     }
 
     private function getStringFromDict($dictionary, $string)

@@ -20,7 +20,7 @@ function show_categories($type){
 function show_topics() {
     $tags = get_tags();
     $select = '<select name="" id="search_topic" class="search-bar__select s-sel s-tag" >';
-    $select .= '<option value="0">'.trans('Tags',false).'</option>';
+    $select .= '<option value="0">'. trans('Tags',false).'</option>';
     foreach ($tags as $tag) {
         $select .= '<option value="'.$tag->term_id.'">'.$tag->name.'</option>';
     }
@@ -31,7 +31,7 @@ function show_topics() {
 function show_select(string $taxonomy){
     $terms = get_terms($taxonomy);
     $select = '<select name="" id="'.$taxonomy.'" class="search-bar__select s-sel s-'.$taxonomy.'" >';
-    $select .= '<option value="0">'.trans(ucfirst($taxonomy),false).'</option>';
+    $select .= '<option value="0">'.trans($taxonomy,false).'</option>';
     foreach ($terms as $term){
         $select .= '<option value="'.$term->term_id.'">'.$term->name.'</option>';
     }

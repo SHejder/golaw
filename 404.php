@@ -21,8 +21,8 @@
 
     <?
     get_sidebar();
-    get_template_part('template-parts/bottom', 'modals');
-    //get_template_part('template-parts/bottom', 'cookie');
+    get_template_part('template-parts/bottom/bottom', 'modals');
+    //get_template_part('template-parts/bottom/bottom', 'cookie');
     wp_footer(); ?>
 </main>
 </body>

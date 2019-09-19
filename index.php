@@ -11,7 +11,7 @@ get_header('insights'); ?>
         }
         query_posts($args);
         $_SESSION['insights']['results'] = $wp_query->found_posts;
-        get_template_part('template-parts/insights', 'filters');
+        get_template_part('template-parts/insights/insights', 'filters');
         if (have_posts()):?>
             <section class="search-ins-sect res-sect">
                 <div class="container">
@@ -53,7 +53,7 @@ get_header('insights'); ?>
         </div>
     </section>
 <?php
-get_template_part('template-parts/bottom', 'subscribe');
+get_template_part('template-parts/bottom/bottom', 'subscribe');
 get_footer();
 
 

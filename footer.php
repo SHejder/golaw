@@ -1,8 +1,8 @@
 </main>
 <?php
 get_sidebar();
-get_template_part('template-parts/bottom', 'modals');
-get_template_part('template-parts/bottom', 'cookie');
+get_template_part('template-parts/bottom/bottom', 'modals');
+get_template_part('template-parts/bottom/bottom', 'cookie');
 global $contacts_link;?>
 <footer class="footer">
     <div class="container">

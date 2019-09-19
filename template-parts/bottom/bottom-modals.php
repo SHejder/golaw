@@ -267,6 +267,6 @@
             </div>
             <?php utmInputs(); ?>
         </form>
-        <?php get_template_part('template-parts/expertise', 'modal'); ?>
+        <?php get_template_part('template-parts/expertise/expertise', 'modal'); ?>
     </div>
 </div>

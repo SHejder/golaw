@@ -2,10 +2,10 @@
 get_header('home');
 global $people_link; ?>
     <section class="home-insights">
-        <?php get_template_part('template-parts/insights', 'home'); ?>
+        <?php get_template_part('template-parts/insights/insights', 'home'); ?>
     </section>
     <section class="expertise-sect">
-        <?php get_template_part('template-parts/expertise','home');?>
+        <?php get_template_part('template-parts/expertise/expertise','home');?>
     </section>
     <section class="hero-about-sect">
         <div class="container">
@@ -39,5 +39,5 @@ global $people_link; ?>
             </a>
         </div>
     </section>
-<?php get_template_part('template-parts/bottom', 'contacts');
+<?php get_template_part('template-parts/bottom/bottom', 'contacts');
 get_footer();

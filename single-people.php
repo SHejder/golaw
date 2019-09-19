@@ -109,7 +109,7 @@ if (have_posts()):
                                             <?php endif; ?>
                                         </ul>
                                         <div class="lawyer-ab__btns">
-                                            <?php get_template_part('template-parts/people','buttons');?>
+                                            <?php get_template_part('template-parts/people/people','buttons');?>
                                         </div>
                                     </div>
                                 </div>

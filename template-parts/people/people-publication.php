@@ -1,6 +1,8 @@
 <?php
-$description = get_field('description');;
-?>
+if (function_exists('get_field')) {
+    $recognitions = get_field('recognitions');
+    $description = get_field('description');
+}; ?>
 <div class="overview__wrap-head-main">
     <?php if (has_post_thumbnail()): ?>
         <figure class="overview__wrap-img">
@@ -25,10 +27,20 @@ $description = get_field('description');;
                 </p>
             <?php endif; ?>
         </div>
-
+        <?php if ($recognitions): ?>
+            <ul class="overview__wrap-rec">
+                <li class="overview__item-rec overview__item-rec_title">
+                    <?php trans('Recognitions'); ?>
+                </li>
+                <?php foreach ($recognitions as $recognition): ?>
+                    <li class="overview__item-rec">
+                        <span><?= $recognition['recognitions']['title']; ?></span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
         <div class="overview__btns">
-            <?php get_template_part('template-parts/people', 'buttons'); ?>
+            <?php get_template_part('template-parts/people/people', 'buttons'); ?>
         </div>
     </div>
 </div>
-

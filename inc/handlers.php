@@ -130,7 +130,12 @@ if (function_exists('acf_add_options_page')) acf_add_options_page();
 function trans(string $string, bool $echo = true)
 {
     $transliterator = new Transliterator($string);
-    $transliterator->getLocalString($echo);
+    $out = $transliterator->getLocalString();
+    if($echo){
+        echo $out;
+    } else {
+        return $out;
+    }
 
 }
 

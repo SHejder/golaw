@@ -37,5 +37,5 @@ if (have_posts()):; ?>
 <?php endif; ?>
 <?php
 get_sidebar();
-get_template_part('template-parts/bottom', 'modals');
+get_template_part('template-parts/bottom/bottom', 'modals');
 wp_footer(); ?>

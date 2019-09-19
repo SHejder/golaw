@@ -195,7 +195,7 @@ global $wp_query; ?>
 <?php endif; ?>
 <?php if(function_exists('getTestimonials')) getTestimonials($testimonials); ?>
     <section class="home-insights home-insights_single-practice">
-        <?php get_template_part('template-parts/insights', 'home'); ?>
+        <?php get_template_part('template-parts/insights/insights', 'home'); ?>
     </section>
-<?php get_template_part('template-parts/bottom', 'contacts');
+<?php get_template_part('template-parts/bottom/bottom', 'contacts');
 get_footer();

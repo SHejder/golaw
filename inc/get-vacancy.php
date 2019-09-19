@@ -7,7 +7,7 @@ function getVacancyList($type){
     if ($posts->have_posts()) {
         while ($posts->have_posts()) {
             $posts->the_post();
-            get_template_part('template-parts/vacancy', $type);
+            get_template_part('template-parts/vacancies/vacancy', $type);
         };
         wp_reset_postdata();
     };
@@ -22,7 +22,7 @@ function getVacancy(){
     if ($posts->have_posts()) {
         while ($posts->have_posts()) {
             $posts->the_post();
-            get_template_part('template-parts/vacancy', 'content');
+            get_template_part('template-parts/vacancies/vacancy', 'content');
         };
         wp_reset_postdata();
     };
