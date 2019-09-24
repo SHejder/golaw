@@ -10,19 +10,18 @@ if (is_front_page()) {
     $type = 'insights';
 } elseif (is_post_type_archive('people')) {
     $type = 'people';
-} elseif (is_page_template('template-service.php') ||
+} elseif (is_page_template('templates/template-service.php') ||
     is_post_type_archive('expertise')) {
     $body_classes .= ' page-policy';
     $body_classes .= ' page-exp';
     $nav_classes .= ' nav-policy';
-} elseif (is_page_template('template-policy.php')) {
-    $body_classes .= ' page-policy';
-    $nav_classes .= ' nav-policy';
-} elseif (is_page_template('template-contacts.php')) {
+} elseif (is_page_template('templates/template-contacts.php')) {
     $body_classes .= ' page-contact';
     $type = 'contacts';
 } else {
     $type = 'default';
+    $body_classes .= ' page-policy';
+    $nav_classes .= ' nav-policy';
 };
 
 if(isset($type)){
@@ -101,4 +100,4 @@ if(isset($type)){
     <div class="nav-progress"></div>
 </nav>
 <main class="main">
-<?= isset($header) ? $header:'';?>
+<?=  isset($header) ? $header:'';?>
