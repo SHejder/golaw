@@ -34,6 +34,10 @@ add_filter('the_content', 'kama_contents_shortcode', 20);
 add_filter('get_the_archive_title', function ($title) {
     return preg_replace('~^[^:]+: ~', '', $title);
 });
+add_filter('upload_mimes', function ($mimes){
+    $mimes['vcf'] = 'text/vcard';
+    return $mimes;
+});
 
 //actions
 //loadmore ajax

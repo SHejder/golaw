@@ -18,6 +18,8 @@ if (is_front_page()) {
 } elseif (is_page_template('templates/template-contacts.php')) {
     $body_classes .= ' page-contact';
     $type = 'contacts';
+} elseif (is_singular(['post', 'people']) || is_page_template('templates/template-expertise.php')) {
+    $type = 'default';
 } else {
     $type = 'default';
     $body_classes .= ' page-policy';

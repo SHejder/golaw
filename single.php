@@ -1,14 +1,6 @@
 <?php
 get_header();
 if (have_posts()):; ?>
-    <header class="header-inside">
-        <div class="container">
-            <div class="header-page">
-                <?php get_template_part(HEADER_TMP_PATH, 'breadcrumbs');?>
-            </div>
-        </div>
-    </header>
-
     <?php while (have_posts()): the_post() ?>
         <section class="policy-sect">
             <div class="container">
