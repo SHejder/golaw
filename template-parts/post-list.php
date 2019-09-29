@@ -11,7 +11,7 @@ $category = get_the_category();?>
             <span class="insights__date"><?= get_the_date('d F Y'); ?></span>
             <span class="insights__tag"><?= $category[0]->name; ?></span>
         </p>
-        <h2 class="insights__card-title">
+        <h2 class="insights__card-title crop-title">
             <?= get_the_title(); ?>
         </h2>
         <?php if(!has_post_thumbnail()):?>
