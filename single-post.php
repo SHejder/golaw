@@ -58,10 +58,8 @@ if (function_exists('get_field')) {
                             <?php endif; ?>
                         </div>
                         <div class="article__wrap_right">
-                            <?php if (function_exists('getLawyerSidebar') && get_field('author')):; ?>
-                                <div class="overview__head">
-                                    <?php getLawyerSidebar(array(get_field('author')), 'publication'); ?>
-                                </div>
+                            <?php if (function_exists('getLawyerSidebar') && get_field('authors')):; ?>
+                                <?php getLawyerSidebar(get_field('authors'), 'publication'); ?>
                             <?php endif; ?>
                             <?php if (function_exists('get_field') && get_field('related_topics')):; ?>
                                 <div class="overview__tags">
