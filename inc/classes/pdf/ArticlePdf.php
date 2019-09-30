@@ -35,8 +35,8 @@ class ArticlePdf extends AbstractPdf implements Strategy
             'date' => get_the_date('d F Y', $this->getPostId()),
         ];
         $is_event = $data['category'][0]->term_id === 6;
-        $lawyer = ($is_event)? 'event_speakers': 'author';
-        $data['is_event'] = ($is_event)? true : false;
+        $lawyer = $is_event ? 'event_speakers': 'authors';
+        $data['is_event'] = $is_event ? : false;
         $people = get_field($lawyer, $this->getPostId());
         if(!is_array($people)) $people = (array)$people;
         $i = 0;

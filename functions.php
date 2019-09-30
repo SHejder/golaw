@@ -101,7 +101,7 @@ if (function_exists('add_image_size')) {
 }
 
 
-if (isset($_POST['get_pdf']) && !empty($_POST['get_pdf'])) {
+if (!empty($_POST['get_pdf'])) {
     $pdf = new Pdf(new Mpdf());
     if ($_POST['get_pdf'] === 'article') {
         $pdf->setStrategy(new ArticlePdf());

@@ -23,7 +23,7 @@
             </svg>
         </a>
     </div>
-    <?php if (isset($data['is_event'])) {
+    <?php if (isset($data['is_event']) && $data['is_event']) {
         include 'article_speaker.php';
     } else {
         include 'article_author.php';
