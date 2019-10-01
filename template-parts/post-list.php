@@ -1,6 +1,11 @@
 <?php
-$category = get_the_category();?>
-<div  class="insights__card insights__card_event js-lnk">
+$category = get_the_category();
+$title = get_the_title();
+if(mb_strlen($title) > 80){
+    $title = mb_substr($title, 0, 80).'...';
+}
+?>
+<div  class="insights__card<?= !has_post_thumbnail() ? ' insights__card_event':''?> js-lnk">
     <?php if(has_post_thumbnail()):?>
         <figure class="insights__wrap-img">
             <?php the_post_thumbnail('post', array('alt'=> get_the_title()));?>
@@ -12,7 +17,7 @@ $category = get_the_category();?>
             <span class="insights__tag"><?= $category[0]->name; ?></span>
         </p>
         <h2 class="insights__card-title crop-title">
-            <?= get_the_title(); ?>
+            <?= $title; ?>
         </h2>
         <?php if(!has_post_thumbnail()):?>
             <p class="insights__text">

@@ -16,9 +16,9 @@ global $wp_query; ?>
     <section class="service-sect">
         <div class="container">
             <h2 class="service-sect__title">
-                <?php if(function_exists('trans')) trans('Services'); ?>
+                <?php if (function_exists('trans')) trans('Services'); ?>
             </h2>
-                <?php if(function_exists('getExpertiseList')) getExpertiseList('raw', null, null, true, get_the_ID()); ?>
+            <?php if (function_exists('getExpertiseList')) getExpertiseList('raw', null, null, true, get_the_ID()); ?>
         </div>
     </section>
     <section class="overview-sect">
@@ -43,9 +43,7 @@ global $wp_query; ?>
                 </div>
                 <?php if (function_exists('getLawyerSidebar') && get_field('expertise_head')):; ?>
                     <div class="overview__wrap_right">
-                        <div class="overview__head">
-                            <?php if(function_exists('getLawyerSidebar')) getLawyerSidebar(array(get_field('expertise_head')), 'publication'); ?>
-                        </div>
+                        <?php if (function_exists('getLawyerSidebar')) getLawyerSidebar(array(get_field('expertise_head')), 'publication'); ?>
                         <?php if (!empty($related_tax)): ?>
                             <div class="overview__tags">
                                 <h3 class="overview__tag-title"><?php trans('Related ' . (($taxonomy === 'sector') ? 'industrial ' : '') . $taxonomy . 's') ?></h3>
@@ -160,7 +158,7 @@ global $wp_query; ?>
     <section class="rep-cases-sect">
         <div class="container">
             <h2 class="rep-cases__title">
-                <?php if(function_exists('trans')) trans('Representative cases'); ?>
+                <?php if (function_exists('trans')) trans('Representative cases'); ?>
             </h2>
             <ul class="rep-cases__wrap">
                 <?php foreach ($cases as $case) : ?>
@@ -179,13 +177,13 @@ global $wp_query; ?>
     <section class="key-law-sect key-law_single-practice">
         <div class="container">
             <h2 class="key-law__title">
-                <?php if(function_exists('trans')) trans('Key lawyers') ?>
+                <?php if (function_exists('trans')) trans('Key lawyers') ?>
             </h2>
             <div class="layers">
-                <?php if(function_exists('getHomeLawyers')) getHomeLawyers($lawyers); ?>
+                <?php if (function_exists('getHomeLawyers')) getHomeLawyers($lawyers); ?>
             </div>
             <a href="<?= wpm_translate_url($people_link); ?>" class="key-law__btn">
-                <span><?php if(function_exists('trans')) trans('find a professional'); ?></span>
+                <span><?php if (function_exists('trans')) trans('find a professional'); ?></span>
                 <svg width="292" height="64" viewBox="0 0 292 64" xmlns="http://www.w3.org/2000/svg">
                     <rect x='0' y='0' fill='none' width='292' height='64'/>
                 </svg>
@@ -193,7 +191,7 @@ global $wp_query; ?>
         </div>
     </section>
 <?php endif; ?>
-<?php if(function_exists('getTestimonials')) getTestimonials($testimonials); ?>
+<?php if (function_exists('getTestimonials')) getTestimonials($testimonials); ?>
     <section class="home-insights home-insights_single-practice">
         <?php get_template_part('template-parts/insights/insights', 'home'); ?>
     </section>
