@@ -2,9 +2,9 @@
 
 function posts_search()
 {
-    global $wp_query;
+    global $wp_query, $posts_count;
     $args = array(
-        'posts_per_page' => 9,
+        'posts_per_page' => $posts_count,
         'post_type' => 'post',
         'orderby' => 'date',
         'sentence' => 1,

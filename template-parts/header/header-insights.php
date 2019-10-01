@@ -1,10 +1,3 @@
-<?php
-if ($_GET){
-    unset($_SESSION['insights']);
-    if (isset($_GET['t'])) $_SESSION['insights']['tag_id'] = $_GET['t'];
-    if (isset($_GET['c'])) $_SESSION['insights']['cat'] = $_GET['c'];
-}
-;?>
 <header class="header-inside header-inside_search-bar">
     <?php get_template_part(HEADER_TMP_PATH, 'breadcrumbs');?>
     <div class="container">

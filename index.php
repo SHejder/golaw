@@ -1,12 +1,20 @@
 <?php
-global $wp_query, $insights_link;
+global $wp_query, $insights_link, $posts_count;
 get_header(); ?>
     <div id="ajaxContent">
         <?php
+        if ($_GET){
+            unset($_SESSION['insights']);
+            if (isset($_GET['t'])) $_SESSION['insights']['tag_id'] = $_GET['t'];
+            if (isset($_GET['c'])) $_SESSION['insights']['cat'] = $_GET['c'];
+            if(!isset($_SESSION['insights']['posts_per_page'])){
+                $_SESSION['insights']['posts_per_page'] = $posts_count;
+            }
+        }
         if (isset($_SESSION['insights'])) {
             $args = $_SESSION['insights'];
         } else {
-            $args = array('posts_per_page' => 9);
+            $args = array('posts_per_page' => $posts_count);
             $_SESSION['insights'] = $args;
         }
         query_posts($args);

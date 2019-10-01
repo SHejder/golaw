@@ -2,6 +2,11 @@
 global $contacts_link;
 $body_classes = 'page-lang-' . wpm_get_language();
 $nav_classes = 'navigation';
+$templates = [
+    'templates/template-expertise.php',
+    'templates/template-vacancies.php',
+    'templates/template-about.php',
+];
 
 if (is_front_page()) {
     $body_classes .= ' home';
@@ -18,8 +23,7 @@ if (is_front_page()) {
 } elseif (is_page_template('templates/template-contacts.php')) {
     $body_classes .= ' page-contact';
     $type = 'contacts';
-} elseif (is_singular(['post', 'people']) || is_page_template('templates/template-expertise.php')
-|| is_search()) {
+} elseif (is_singular(['post', 'people']) || is_page_template($templates) || is_search()) {
     $type = 'default';
 } else {
     $type = 'default';
