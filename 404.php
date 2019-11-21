@@ -1,4 +1,4 @@
-<?php get_header();?>
+<?php get_header('policy');?>
     <section class="error-page-sect">
         <div class="container">
             <h1 class="error-page__title">

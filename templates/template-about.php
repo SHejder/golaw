@@ -52,7 +52,7 @@ get_header(); ?>
             </div>
             <div class="insights__content achivs__content op-cont">
                 <div class="achivs__tab-wrap cont-tab-ins active">
-                    <?php show_posts(7); ?>
+                    <?php show_posts(7, 6); ?>
                 </div>
             </div>
             <button class="achivs__more ach-m">

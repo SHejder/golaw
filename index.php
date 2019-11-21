@@ -48,7 +48,7 @@ get_header(); ?>
             <h2 class="topics__title"><?php trans('Trending Tags'); ?></h2>
             <ul class="topics__wrap">
                 <?php $tags = get_tags(array(
-                    'numbers' => 7,
+                    'number' => 10,
                     'orderby' => 'count',
                     'order' => 'DESC',
                     'fields' => 'id=>name'

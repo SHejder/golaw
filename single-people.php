@@ -4,10 +4,11 @@ get_header();
 if (function_exists('get_field')) {
     $contacts = get_field('contacts');
     $description = get_field('description');
+    $practises = get_field('people_practices');
+    $sectors = get_field('people_sectors');
+    $recognitions = get_field('recognitions');
 }
-$practises = get_field('people_practices');
-$sectors = get_field('people_sectors');
-$recognitions = get_field('recognitions');
+
 global $insights_link;
 if (have_posts()):
     while (have_posts()): the_post(); ?>

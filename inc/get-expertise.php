@@ -3,6 +3,7 @@ function getExpertiseList( string $type, $taxonomy = null, array $exclude = null
                            bool $child = false, int $parent_id = null){
     $args =[
         'post_type' => 'expertise',
+        'posts_per_page' => -1,
     ];
     if (!empty($taxonomy)){
         if (is_string($taxonomy)) {

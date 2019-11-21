@@ -43,8 +43,8 @@ if(isset($type)){
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="../img/logo/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../img/logo/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <?php wp_head(); ?>
     <?php if (get_page_link() === wpm_translate_url($contacts_link)):?>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONeJojxMq_7-PIIds7FCrrmUXmF1wNis"></script>

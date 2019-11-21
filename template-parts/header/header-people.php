@@ -1,7 +1,12 @@
 <?php
 if($_GET){
     unset($_SESSION['people']);
-    if ($_GET['q']) $_SESSION['people']['s'] = $_GET['q'];
+    if ($_GET['q']) {
+        $_SESSION['people']['s'] = $_GET['q'];
+        $_SESSION['people']['post_type'] = 'people';
+        $_SESSION['people']['orderby'] = 'menu_order';
+        $_SESSION['people']['order'] = 'ASC';
+    }
 }
 $articles = array(6, 7, 8);
 if (in_array($id, $articles)) {

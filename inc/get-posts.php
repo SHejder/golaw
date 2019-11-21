@@ -99,7 +99,7 @@ function get_lawyer_publications(){
         };
         echo '</div>
                 </div>
-                <a href="'.wpm_translate_url($insights_link).'" class="insights__more">
+                <a href="'.wpm_translate_url($insights_link).'" class="insights__more ach-m">
                     <span>'. trans('View all',false).'</span>
                     <svg width="242" height="64" viewBox="0 0 242 64" xmlns="http://www.w3.org/2000/svg">
                         <rect x=\'0\' y=\'0\' fill=\'none\' width=\'242\' height=\'64\' />

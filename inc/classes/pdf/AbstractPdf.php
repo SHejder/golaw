@@ -87,7 +87,7 @@ abstract class AbstractPdf
                 $phones .= '<span>';
                 $phones .= $item['phone'];
                 $phones .= '</span>';
-                $phones .= '</span>';
+                $phones .= '</span><br>';
             }
         }
         return $phones;

@@ -19,7 +19,8 @@ function getHomeLawyers(array $include = null){
         'post_type' => 'people',
         'orderby' => 'menu_order',
         'sentence' => 1,
-        'order' => 'ASC'
+        'order' => 'ASC',
+        'posts_per_page' => 9
     );
     if($include) $args['post__in'] = $include;
     $peoples = new WP_Query($args);
@@ -38,7 +39,8 @@ function getLawyers(){
         'post_type' => 'people',
         'orderby' => 'menu_order',
         'sentence' => 1,
-        'order' => 'ASC'
+        'order' => 'ASC' ,
+        'posts_per_page' => -1
 
     );
     if ($_POST['practice'] !== '0' || $_POST['location'] !== '0'|| $_POST['sector'] !== '0'){

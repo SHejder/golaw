@@ -221,9 +221,12 @@ function content()
 
 function savePDF($post_ID, $post, $update)
 {
+    remove_action( 'save_post_people', 'savePDF' );
+    wp_update_post( array( 'ID' => $post_ID ) );
     $pdf = new Pdf(new Mpdf(), new LocalPdf());
     $pdf->savePDF($post);
     unset($pdf);
+    add_action( 'save_post_people', 'savePDF' );
 }
 
 function saveUtmToCookie()

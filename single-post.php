@@ -3,11 +3,12 @@ global $insights_link;
 $category = get_the_category();
 $tags = get_the_tags();
 get_header();
+$loc = wpm_get_language();
 if (function_exists('get_field')) {
     $insights_link = get_field('insights_page', 'option');
     $topics = get_field('related_topics');
     $is_digest = get_field('digest');
-    $digest = get_field('digest_pdf');
+//    $digest = get_field('digest_pdf_' . $loc);
 }; ?>
     <section class="article-sect">
         <div class="article-content">
@@ -44,7 +45,9 @@ if (function_exists('get_field')) {
                                             <svg class="overview__pr-svg" viewBox="0 0 16 16" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
-                                                        d="M12.0054 8.15918L7.5 12.6646L2.99458 8.15918L3.82324 7.33051L6.91406 10.4213V0H8.08594V10.4213L11.1768 7.33051L12.0054 8.15918ZM15 13.8281H0V15H15V13.8281Z"
+                                                        d="M12.0054 8.15918L7.5 12.6646L2.99458 8.15918L3.82324
+                                                        7.33051L6.91406 10.4213V0H8.08594V10.4213L11.1768
+                                                        7.33051L12.0054 8.15918ZM15 13.8281H0V15H15V13.8281Z"
                                                         class="overview__pr-path"/>
                                             </svg>
                                         </i>
@@ -58,16 +61,19 @@ if (function_exists('get_field')) {
                             <?php endif; ?>
                         </div>
                         <div class="article__wrap_right">
-                            <?php if (function_exists('getLawyerSidebar') && get_field('authors')):; ?>
+                            <?php if (function_exists('getLawyerSidebar')
+                                && get_field('authors')):; ?>
                                 <?php getLawyerSidebar(get_field('authors'), 'publication'); ?>
                             <?php endif; ?>
-                            <?php if (function_exists('get_field') && get_field('related_topics')):; ?>
+                            <?php if (function_exists('get_field')
+                                && get_field('related_topics')):; ?>
                                 <div class="overview__tags">
                                     <h3 class="overview__tag-title"><?php trans('Related Tags') ?></h3>
                                     <ul class="overview__wrap-tag">
                                         <?php foreach ($topics as $topic):; ?>
                                             <li class="overview__tag-item">
-                                                <a href="<?= wpm_translate_url($insights_link) . '?t=' . $topic->term_id; ?>">
+                                                <a href="
+                                                <?= wpm_translate_url($insights_link) . '?t=' . $topic->term_id; ?>">
                                                     <?= $topic->name; ?>
                                                 </a></li>
                                         <?php endforeach; ?>
@@ -84,7 +90,9 @@ if (function_exists('get_field')) {
                                                 <svg class="overview__pr-svg" viewBox="0 0 16 16" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
-                                                            d="M12.0054 8.15918L7.5 12.6646L2.99458 8.15918L3.82324 7.33051L6.91406 10.4213V0H8.08594V10.4213L11.1768 7.33051L12.0054 8.15918ZM15 13.8281H0V15H15V13.8281Z"
+                                                            d="M12.0054 8.15918L7.5 12.6646L2.99458 8.15918L3.82324
+                                                            7.33051L6.91406 10.4213V0H8.08594V10.4213L11.1768
+                                                             7.33051L12.0054 8.15918ZM15 13.8281H0V15H15V13.8281Z"
                                                             class="overview__pr-path"/>
                                                 </svg>
                                             </i>
@@ -108,7 +116,21 @@ if (function_exists('get_field')) {
                                                      fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path class="overview__sh-path"
-                                                          d="M10.2308 8.61539C9.27769 8.61539 8.44523 9.11347 7.96708 9.86031L5.08415 8.21262C5.26991 7.84646 5.38461 7.43884 5.38461 7C5.38461 6.72914 5.33237 6.47286 5.25807 6.22622L8.25785 4.51229C8.74947 5.04538 9.44837 5.38461 10.2308 5.38461C11.7175 5.38461 12.9231 4.17899 12.9231 2.69231C12.9231 1.20563 11.7175 0 10.2308 0C8.74409 0 7.53846 1.20563 7.53846 2.69231C7.53846 2.96316 7.5907 3.21945 7.66499 3.46609L4.66523 5.18055C4.1736 4.64692 3.47468 4.30769 2.69231 4.30769C1.20563 4.30769 0 5.51277 0 7C0 8.48668 1.20563 9.69231 2.69231 9.69231C3.30615 9.69231 3.86508 9.47908 4.31791 9.13286L7.56754 11.0164C7.55732 11.1138 7.53846 11.2081 7.53846 11.3077C7.53846 12.7944 8.74409 14 10.2308 14C11.7175 14 12.9231 12.7944 12.9231 11.3077C12.9231 9.82101 11.7175 8.61539 10.2308 8.61539Z"/>
+                                                          d="M10.2308 8.61539C9.27769 8.61539 8.44523 9.11347 7.96708
+                                                           9.86031L5.08415 8.21262C5.26991 7.84646 5.38461 7.43884
+                                                           5.38461 7C5.38461 6.72914 5.33237 6.47286 5.25807
+                                                           6.22622L8.25785 4.51229C8.74947 5.04538 9.44837
+                                                           5.38461 10.2308 5.38461C11.7175 5.38461 12.9231
+                                                           4.17899 12.9231 2.69231C12.9231 1.20563 11.7175 0
+                                                           10.2308 0C8.74409 0 7.53846 1.20563 7.53846
+                                                           2.69231C7.53846 2.96316 7.5907 3.21945 7.66499
+                                                           3.46609L4.66523 5.18055C4.1736 4.64692 3.47468 4.30769
+                                                           2.69231 4.30769C1.20563 4.30769 0 5.51277 0 7C0 8.48668
+                                                           1.20563 9.69231 2.69231 9.69231C3.30615 9.69231 3.86508
+                                                           9.47908 4.31791 9.13286L7.56754 11.0164C7.55732 11.1138
+                                                           7.53846 11.2081 7.53846 11.3077C7.53846 12.7944 8.74409
+                                                           14 10.2308 14C11.7175 14 12.9231 12.7944 12.9231
+                                                           11.3077C12.9231 9.82101 11.7175 8.61539 10.2308 8.61539Z"/>
                                                 </svg>
                                             </i>
                                             <span>

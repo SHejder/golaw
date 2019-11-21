@@ -62,13 +62,13 @@ add_action('wp_logout', 'end_session');
 add_action('wp_login', 'end_session');
 add_action('end_session_action', 'end_session');
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('main.css', get_template_directory_uri() . '/css/main.css', array(), '5.1');
+    wp_enqueue_style('main.css', get_template_directory_uri() . '/css/main.css', array(), '5.3');
     wp_deregister_script('jquery-core');
     wp_register_script('jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
     wp_enqueue_script('jquery');
     wp_enqueue_script('swiper.min.js', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.3', true);
     wp_enqueue_script('simplebar.min.js', get_template_directory_uri() . '/js/simplebar.min.js', array(), '1.0.3', true);
-    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), '7.1', true);
+    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), '7.2', true);
     wp_enqueue_script('function', get_template_directory_uri() . '/js/function.js', 'main', '6.1', true);
 });
 add_action('save_post_people', 'savePDF', 10, 3);
