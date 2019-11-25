@@ -77,8 +77,9 @@ function get_lawyer_publications(){
         'post_per_page' => 3,
         'meta_query'    => array(
             array(
-                'key' => 'author',
-                'value' => get_the_ID()
+                'key' => 'authors',
+                'value' => get_the_ID(),
+                'compare' => 'LIKE'
             )
         )
     ];

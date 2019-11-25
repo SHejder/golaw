@@ -757,6 +757,13 @@ return array (
     'de' => '',
     'ru' => '',
   ),
+  'less' => 
+  array (
+    'en' => 'Less',
+    'ua' => '',
+    'de' => '',
+    'ru' => '',
+  ),
 );
 
  

@@ -2,7 +2,7 @@
 $category = get_the_category();
 $title = get_the_title();
 if(mb_strlen($title) > 80){
-    $title = mb_substr($title, 0, 80).'...';
+    $title = mb_substr(htmlspecialchars_decode($title), 0, 80).'...';
 }
 ?>
 <div  class="insights__card<?= !has_post_thumbnail() ? ' insights__card_event':''?> js-lnk">
