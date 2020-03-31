@@ -37,8 +37,6 @@ function modalForm()
     }
 }
 
-;
-
 function sendDataToCRM($name, $email, $text)
 {
     $bitrix = new Bitrix24('golaw.bitrix24.ua', '132', 'nx3t15dqenlcjebk');

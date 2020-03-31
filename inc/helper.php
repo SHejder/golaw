@@ -26,10 +26,7 @@ function end_session()
 }
 
 
-/**
- * @param string $menu_id
- */
-function sidebar_menu($menu_id)
+function sidebar_menu()
 {
     $args = [
         'menu' => 'Sidebar',

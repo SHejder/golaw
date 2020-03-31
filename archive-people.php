@@ -4,10 +4,15 @@ global $wp_query;?>
 <div id="ajaxContent">
     <?php
     if (isset($_SESSION['people']) && isset($_SESSION['people']['post_type']))$args = $_SESSION['people'];
-    else $args = array('post_type' => 'people', 'orderby' => 'menu_order', 'order' => 'ASC');
+    else $args = array(
+            'post_type' => 'people',
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'post_per_page' => 10
+    );
 //    debug($args);
     query_posts($args);
-    $_SESSION['people']['results']['count'] = $wp_query->found_posts;
+    $_SESSION['people']['results']['count'] = isset($args['post_per_page']) ? $args['post_per_page'] : $wp_query->found_posts;
     get_template_part('template-parts/people/people','filters');
     echo '<section class="search-law-sect res-sect">
             <div class="container">';
