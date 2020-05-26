@@ -39,7 +39,7 @@ function getLawyers(){
         'orderby' => 'menu_order',
         'sentence' => 1,
         'order' => 'ASC' ,
-        'posts_per_page' => 9
+        'posts_per_page' => -1
 
     );
     if ($_POST['practice'] !== '0' || $_POST['location'] !== '0'|| $_POST['sector'] !== '0'){
