@@ -64,7 +64,7 @@ class Bitrix24
 
                 }
             }
-        };
+        }
         $this->queryData = http_build_query(array(
             'fields' => $fields
         ));

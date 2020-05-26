@@ -1,4 +1,4 @@
-<?php get_header('policy');?>
+<?php get_header();?>
     <section class="error-page-sect">
         <div class="container">
             <h1 class="error-page__title">
@@ -18,12 +18,9 @@
             </a>
         </div>
     </section>
-
-    <?
+<?php
     get_sidebar();
     get_template_part('template-parts/bottom/bottom', 'modals');
-    //get_template_part('template-parts/bottom/bottom', 'cookie');
     wp_footer(); ?>
-</main>
-</body>
+
 

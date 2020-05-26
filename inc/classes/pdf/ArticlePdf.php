@@ -12,7 +12,7 @@ class ArticlePdf extends AbstractPdf implements Strategy
         $this->setPostId($post->ID);
         $this->getData();
         $content  = preg_replace('#\[.*\]#', '', wpm_translate_string($post->post_content));
-        $title = $post->post_title;
+        $title = wpm_translate_string($post->post_title);
         ob_start();
         require_once 'templates/article.php';
         return $html = ob_get_clean();

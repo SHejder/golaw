@@ -5,7 +5,7 @@ use classes\Bitrix24;
 function modalForm()
 {
     $lang = wpm_get_language();
-    $message = "New message from Web-site.\n";
+    $message = "New message from Web-site" . $lang . ".\n";
     $email = htmlspecialchars($_POST['email']);
     $name = htmlspecialchars($_POST['name']);
     isset($_POST['message'])? $text = htmlspecialchars($_POST['message']):$text = '';
@@ -16,7 +16,7 @@ function modalForm()
 
     if (!empty($_POST['name'])) $message .= "Name: {$name}\n";
     if (!empty($_POST['email'])) $message .= "Email: {$email}\n";
-    if (isset($_POST['type']) && !empty($_POST['type'])) {
+    if (!empty($_POST['type'])) {
         $types = [];
         foreach ($_POST['type'] as $item) {
             array_push($types, $item);
@@ -24,7 +24,7 @@ function modalForm()
         $string = implode(', ', $types);
         $message .= "Subscribe types: {$string}\n";
     }
-    if (isset($text) && !empty($text)) $message .= "Message text:\n {$text}";
+    if (!empty($text)) $message .= "Message text:\n {$text}";
     if (wp_mail(ADMIN_EMAIL, 'New message', $message)) {
         if (isset($_POST['file']) && isset($digest)) {
             echo $digest['url'];

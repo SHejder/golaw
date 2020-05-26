@@ -10,28 +10,95 @@
         </a>
     </div>
     <div class="lawyer-ab__law">
-        <div class="lawyer-ab__wrap-head-main">
-            <figure class="lawyer-ab__wrap-img">
-                <img src="<?= $data['photo'][0];?>" style="width: 250px; height: 250px" alt="Name img">
+        <div class="lawyer-ab__wrap-head-main" style="width: 100%;">
+            <figure class="lawyer-ab__wrap-img" style="width: 100%;">
+                <img src="<?= $data['photo'][0];?>" style="width: 150px; height: 150px; float: left" alt="Name img">
+
+                <div class="lawyer-ab__wrap-name-pos" style="padding: 0; margin-left: 30px;">
+                    <h2 class="lawyer-ab__name" style="margin-top: 0; ">
+                        <?= wpm_translate_string($post->post_title);?>
+                        <p class="lawyer-ab__position" style="font-size: 12px; margin-top:10px; ">
+                            <?= $data['description'];?> <br><br>
+                            <i>
+                                <svg class="lawyer-ab__cont-svg" width="10" height="6" viewBox="0 0 15 11"
+                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M7.49879 7.69996L5.64321 6.03235L0.337891 10.7019C0.530734 10.8856 0.791071 11 1.07819 11H13.9194C14.2054 11 14.4647 10.8856 14.6565 10.7019L9.35437 6.03235L7.49879 7.69996Z" fill="#C8102E"/>
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M14.6615 0.298103C14.4686 0.113301 14.2093 0 13.9211 0H1.07996C0.793906 0 0.53464 0.114401 0.341797 0.300303L7.50055 6.60006L14.6615 0.298103Z" fill="#C8102E"/>
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M0 0.965698V10.1046L5.17783 5.58684L0 0.965698Z" fill="#C8102E"/>
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M9.82227 5.58672L15.0001 10.1045V0.96228L9.82227 5.58672Z" fill="#C8102E"/>
+                                </svg>
+                            </i>
+                            <a href="mailto:info@golaw.ua" class="lawyer-ab__links" style="font-size: 10px; font-weight: 300;">
+                                    <span style="font-size: 10px; font-weight: 300;">
+                                        <?= $data['contacts']['mail_box'];?>
+                                    </span>
+                            </a>
+                            |
+                            <i>
+                                <svg class="lawyer-ab__cont-svg" width="10" height="10" viewBox="0 0 16 16"
+                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M5.02431 5.29684L1.32845 1.60043C1.80549 1.12357 2.28158 0.645757 2.75957 0.167945C2.98054 -0.0529485 3.33713 -0.0567407 3.55905 0.161309L6.43835 3.0424C6.65838 3.26235 6.65838 3.6245 6.43551 3.84634L5.80483 4.47584L5.21778 5.06268C5.1457 5.13568 5.08027 5.21342 5.02431 5.29684ZM8.06483 11.3179C7.45976 10.7974 6.87935 10.2447 6.31601 9.68248C5.75362 9.1165 5.20261 8.5382 4.68099 7.9305C4.25422 7.43752 4.17076 6.72365 4.39363 6.12259L0.600093 2.32948C-0.282854 3.23675 -0.169996 5.48645 0.797357 7.46312C1.21275 8.31825 1.75143 9.08996 2.30813 9.82374C2.86389 10.5518 3.4737 11.2401 4.11576 11.8867C4.75971 12.5323 5.44444 13.1447 6.1747 13.7003C6.90875 14.2587 7.68263 14.7934 8.53239 15.2077C10.5126 16.1737 12.7641 16.2799 13.6707 15.3963L9.87625 11.6032C9.27497 11.826 8.55989 11.7435 8.06483 11.3179ZM15.8368 12.4375L12.9576 9.55829C12.7366 9.34024 12.3743 9.34024 12.1533 9.56113H12.1514L11.5189 10.1925L10.9356 10.7784C10.8635 10.8505 10.7848 10.914 10.7013 10.9728L14.3963 14.6682C14.8742 14.1895 15.3513 13.7135 15.8302 13.2367C16.0531 13.0158 16.0578 12.6584 15.8368 12.4375Z" fill="#C8102E"/>
+                                </svg>
+                            </i>
+                            <span><?= $data['phones'];?></span>
+                            <!-- <p class="lawyer-ab__item-rec" style="font-size: 10px; font-weight: 300;">
+                            <i>
+                                <svg class="lawyer-ab__cont-svg" width="10" height="6" viewBox="0 0 15 11"
+                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M7.49879 7.69996L5.64321 6.03235L0.337891 10.7019C0.530734 10.8856 0.791071 11 1.07819 11H13.9194C14.2054 11 14.4647 10.8856 14.6565 10.7019L9.35437 6.03235L7.49879 7.69996Z" fill="#C8102E"/>
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M14.6615 0.298103C14.4686 0.113301 14.2093 0 13.9211 0H1.07996C0.793906 0 0.53464 0.114401 0.341797 0.300303L7.50055 6.60006L14.6615 0.298103Z" fill="#C8102E"/>
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M0 0.965698V10.1046L5.17783 5.58684L0 0.965698Z" fill="#C8102E"/>
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M9.82227 5.58672L15.0001 10.1045V0.96228L9.82227 5.58672Z" fill="#C8102E"/>
+                                </svg>
+                            </i>
+                            <a href="mailto:info@golaw.ua" class="lawyer-ab__links" style="font-size: 10px; font-weight: 300;">
+                                    <span style="font-size: 10px; font-weight: 300;">
+                                        <?= $data['contacts']['mail_box'];?>
+                                    </span>
+                            </a>
+                        </p> -->
+                        <!-- <p class="lawyer-ab__item-rec" style="font-size: 10px; font-weight: 300;" >
+                            <i>
+                                <svg class="lawyer-ab__cont-svg" width="10" height="10" viewBox="0 0 16 16"
+                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="lawyer-ab__cont-path"
+                                          d="M5.02431 5.29684L1.32845 1.60043C1.80549 1.12357 2.28158 0.645757 2.75957 0.167945C2.98054 -0.0529485 3.33713 -0.0567407 3.55905 0.161309L6.43835 3.0424C6.65838 3.26235 6.65838 3.6245 6.43551 3.84634L5.80483 4.47584L5.21778 5.06268C5.1457 5.13568 5.08027 5.21342 5.02431 5.29684ZM8.06483 11.3179C7.45976 10.7974 6.87935 10.2447 6.31601 9.68248C5.75362 9.1165 5.20261 8.5382 4.68099 7.9305C4.25422 7.43752 4.17076 6.72365 4.39363 6.12259L0.600093 2.32948C-0.282854 3.23675 -0.169996 5.48645 0.797357 7.46312C1.21275 8.31825 1.75143 9.08996 2.30813 9.82374C2.86389 10.5518 3.4737 11.2401 4.11576 11.8867C4.75971 12.5323 5.44444 13.1447 6.1747 13.7003C6.90875 14.2587 7.68263 14.7934 8.53239 15.2077C10.5126 16.1737 12.7641 16.2799 13.6707 15.3963L9.87625 11.6032C9.27497 11.826 8.55989 11.7435 8.06483 11.3179ZM15.8368 12.4375L12.9576 9.55829C12.7366 9.34024 12.3743 9.34024 12.1533 9.56113H12.1514L11.5189 10.1925L10.9356 10.7784C10.8635 10.8505 10.7848 10.914 10.7013 10.9728L14.3963 14.6682C14.8742 14.1895 15.3513 13.7135 15.8302 13.2367C16.0531 13.0158 16.0578 12.6584 15.8368 12.4375Z" fill="#C8102E"/>
+                                </svg>
+                            </i>
+                            <?= $data['phones'];?>
+                        </p> -->
+                        </p>
+                    </h2>
+                </div>
             </figure>
             <div class="lawyer-ab__wrap-about">
-                <div class="lawyer-ab__wrap-name-pos" style="padding: 0; width: 300px;"> 
-                    <h2 class="lawyer-ab__name">
+                <!-- <div class="lawyer-ab__wrap-name-pos" style="padding: 0; width: 300px;">  -->
+                    <!-- <h2 class="lawyer-ab__name">
                         <a href="#" class="lawyer-ab__name-link" style="text-transform: capitalize;">
                             <?= wpm_translate_string($post->post_title);?>
                         </a>
-                    </h2>
-                    <p class="lawyer-ab__position">
-                        <?= $data['description'];?>
-                    </p>
-                </div>
+                        <p class="lawyer-ab__position">
+                            <?= $data['description'];?>
+                        </p>
+                    </h2> -->
+                    
+                <!-- </div> -->
                 <div class="lawyer-ab__wrapper">
                     <ul class="lawyer-ab__wrap-cont">
-                        <li class="lawyer-ab__item-rec lawyer-ab__item-cont_title">
+                        <!-- <li class="lawyer-ab__item-rec lawyer-ab__item-cont_title">
                             <?php trans('Contact information');?>
-                        </li>
-                        <li class="lawyer-ab__item-cont">
-                            <i>
+                        </li> -->
+                        <!-- <li class="lawyer-ab__item-cont"> -->
+                            <!-- <i>
                                 <svg class="lawyer-ab__cont-svg" width="11" height="16" viewBox="0 0 11 16"
                                      fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path class="lawyer-ab__cont-path"
@@ -40,9 +107,9 @@
                             </i>
                             <span>
                                     <?= $data['contacts']['office_addres'];?>
-                                </span>
-                        </li>
-                        <li class="lawyer-ab__item-rec">
+                                </span> -->
+                        <!-- </li> -->
+                        <!-- <li class="lawyer-ab__item-rec">
                             <i>
                                 <svg class="lawyer-ab__cont-svg" width="15" height="11" viewBox="0 0 15 11"
                                      fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,8 +128,8 @@
                                         <?= $data['contacts']['mail_box'];?>
                                     </span>
                             </a>
-                        </li>
-                        <li class="lawyer-ab__item-rec">
+                        </li> -->
+                        <!-- <li class="lawyer-ab__item-rec">
                             <i>
                                 <svg class="lawyer-ab__cont-svg" width="16" height="16" viewBox="0 0 16 16"
                                      fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +138,7 @@
                                 </svg>
                             </i>
                             <?= $data['phones'];?>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

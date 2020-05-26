@@ -19,10 +19,9 @@ function lang_switcher ($type) {
             }
             $toggle_url = esc_url(wpm_translate_current_url($code));
             if ($type === 'dropdawn') {
-                $css_classes = 'nav-lang__link';
+                $css_classes = 'nav-lang__link h-langs__link';
 
-                $out .= '<li class="nav-lang__item">'.
-                    '<a href="' . $toggle_url . '" class="' . $css_classes . '">';
+                $out .= '<li class="nav-lang__item '.$css_classes.'" data-lang = "'.$code.'">';
                 $out .= strtoupper(esc_attr($code));
             } elseif ($type === 'column') {
                 $css_classes = 'h-langs__item ';
@@ -34,12 +33,13 @@ function lang_switcher ($type) {
                 $out .= '<li class="'.$css_classes.'">'.
                     '<a href="' . $toggle_url . '" class="h-langs__link">';
                 $out .= '<span>'.esc_attr($code).'</span>';
+                $out .='</a>';
 
             } else {
                 $css_classes = '';
-                $out .= '<li><a href="#">';
+                $out .= '<li><a href="#"></a>';
             }
-            $out .= '</a></li>';
+            $out .= '</li>';
         }
 
         $out .= '</ul>';

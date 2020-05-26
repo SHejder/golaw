@@ -10,9 +10,9 @@ function getLawyerSidebar($id, $type){
         while ($posts->have_posts()) {
             $posts->the_post();
                 get_template_part('template-parts/people/people', $type);
-        };
+        }
         wp_reset_postdata();
-    };
+    }
 }
 function getHomeLawyers(array $include = null){
     $args = array(
@@ -28,19 +28,18 @@ function getHomeLawyers(array $include = null){
         while ($peoples->have_posts()) {
             $peoples->the_post();
             get_template_part('template-parts/people/people', 'home');
-        };
+        }
         wp_reset_postdata();
-    };
+    }
 }
 
 function getLawyers(){
-    global $wp_query;
     $args = array(
         'post_type' => 'people',
         'orderby' => 'menu_order',
         'sentence' => 1,
         'order' => 'ASC' ,
-        'posts_per_page' => -1
+        'posts_per_page' => 9
 
     );
     if ($_POST['practice'] !== '0' || $_POST['location'] !== '0'|| $_POST['sector'] !== '0'){
@@ -60,24 +59,19 @@ function getLawyers(){
             ];
             array_push($args['tax_query'], $taxonomy);
         }
-
     }
-    $_SESSION['people'] = $args;
-//    echo 'ajax';
-//    debug($args);
-    query_posts($args);
-//    debug($wp_query);
-    $_SESSION['people']['results']['count'] = $wp_query->found_posts;
-    if ($_POST['practice'] !== '0') $_SESSION['people']['results']['practice'] = $_POST['practice'];
-    if ($_POST['location'] !== '0') $_SESSION['people']['results']['location'] = $_POST['location'];
-    if ($_POST['sector'] !== '0') $_SESSION['people']['results']['sector'] = $_POST['sector'];
+
+    $query = new WP_Query($args);
+
+    setFilterCookie($query);
+
     get_template_part('template-parts/people/people','filters');
     echo '<section class="search-law-sect res-sect">
             <div class="container">';
-                    if (have_posts()) {
+                    if ($query->have_posts()) {
                         echo '<div class="search-law">';
-                        while (have_posts()) {
-                            the_post();
+                        while ($query->have_posts()) {
+                            $query->the_post();
                             get_template_part('template-parts/people/people', 'list');
                         }
                         echo '</div>';

@@ -424,7 +424,7 @@ return array (
   'get in touch' => 
   array (
     'en' => 'Get in touch',
-    'ua' => 'Залишатися на зв’язку',
+    'ua' => 'Отримати консультацію',
     'de' => 'Im Kontakt bleiben',
     'ru' => 'Оставаться на связи',
   ),
@@ -543,7 +543,7 @@ return array (
   'we use cookies to improve functionality and performance, to analyze traffic' => 
   array (
     'en' => 'We use cookies to improve performance of our website and your user experience',
-    'ua' => 'Ми використовуємо файли cookies для удосконалення роботи сайту та покращення Вашого користовацького досвіду ',
+    'ua' => 'Ми використовуємо файли cookies для вдосконалення роботи сайту та покращення Вашого користувацького досвіду ',
     'de' => ' Wir verwenden Coockies, um unsere Dienste und Ihre Anwendererfahrungen zu verbessern',
     'ru' => 'Мы используем файлы cookies для совершенствования работы сайта и улучшения Вашего пользовательского опыта',
   ),
@@ -746,23 +746,157 @@ return array (
   'cookies policy' => 
   array (
     'en' => 'Cookies policy',
+    'ua' => 'Політика cookies',
+    'de' => 'Cookies-Politik',
+    'ru' => 'Политика cookies',
+  ),
+  'accept cookies' => 
+  array (
+    'en' => 'Accept',
+    'ua' => 'Прийняти',
+    'de' => 'Akzeptieren',
+    'ru' => 'Принять',
+  ),
+  'and to provide social media features.' => 
+  array (
+    'en' => 'And to provide social media features.',
     'ua' => '',
     'de' => '',
     'ru' => '',
   ),
-  'accept cookies' => 
+  'our apologies, this is almost certainly not the page you were looking for.
+                please try the search tool, above, or visit our home page.' => 
   array (
-    'en' => 'Accept cookies',
-    'ua' => '',
-    'de' => '',
-    'ru' => '',
+    'en' => 'Our apologies, this is almost certainly not the page you were looking for. Please try the search tool above or visit our home page ',
+    'ua' => 'Вибачте, сторінка не знайдена. Будь ласка, спробуйте скористатися загальним пошуком за ключовим словом або поверніться на головну сторінку cайту',
+    'de' => 'Ihre Suchanfrage ergab keine Treffer. Geben Sie einen neuen Suchbegriff ein oder besuchen Sie unsere Hauptseite',
+    'ru' => 'Извините, страница не найдена. Пожалуйста, попробуйте воспользоваться общим поиском по ключевому слову или вернитесь на главную страницу сайта',
   ),
   'less' => 
   array (
     'en' => 'Less',
+    'ua' => 'Згорнути',
+    'de' => '',
+    'ru' => 'Свернуть',
+  ),
+  'more' => 
+  array (
+    'en' => 'More',
+    'ua' => 'Більше',
+    'de' => '',
+    'ru' => 'Больше',
+  ),
+  'recognition' => 
+  array (
+    'en' => 'Recognition',
+    'ua' => 'Визнання',
+    'de' => '',
+    'ru' => 'Признания',
+  ),
+  'the search you entered did not locate any results.' => 
+  array (
+    'en' => 'No matches found. Please try again',
+    'ua' => 'Вибачте, за Вашим запитом нічого не знайдено. Будь ласка, спробуйте ще раз.',
+    'de' => '',
+    'ru' => 'Извините, по Вашему запросу ничего не найдено. Пожалуйста, попробуйте еще раз.',
+  ),
+  'search by a keyword' => 
+  array (
+    'en' => 'Keyword search',
+    'ua' => 'Пошук за ключовим словом',
+    'de' => '',
+    'ru' => 'Поиск по ключевому слову',
+  ),
+  'search' => 
+  array (
+    'en' => 'Search',
+    'ua' => 'Пошук',
+    'de' => '',
+    'ru' => 'Поиск',
+  ),
+  'no lawyers found for the criteria you entered. please try another search.' => 
+  array (
+    'en' => 'No lawyers found for the criteria you entered. Please try another search.',
+    'ua' => 'За обраними критеріями юристи не знайдені. Будь ласка, спробуйте пошук за іншими параметрами.',
+    'de' => '',
+    'ru' => 'По выбранным критериям юристы не найдены. Пожалуйста, попробуйте изменить параметры поиска.',
+  ),
+  'no results found for the criteria you entered. Please search again.' => 
+  array (
+    'en' => 'No results found for the criteria you entered. Please search again.',
+    'ua' => 'За Вашим запитом нічого не знайдено. Будь ласка, спробуйет ще раз.',
+    'de' => '',
+    'ru' => 'По Вашему запросу ничего не найдено. Пожалуйста, попробуйте еще раз.',
+  ),
+  'related industrial sectors' => 
+  array (
+    'en' => 'Related industrial sectors',
+    'ua' => 'Суміжні сектори економіки',
+    'de' => '',
+    'ru' => 'Смежные индустрии',
+  ),
+  'sorry...page under construction' => 
+  array (
+    'en' => 'Sorry...page under construction',
+    'ua' => 'Вибачте, сторінка ще не готова.',
+    'de' => '',
+    'ru' => 'Извините, страница еще не готова.',
+  ),
+  'intro' => 
+  array (
+    'en' => 'Intro',
     'ua' => '',
     'de' => '',
     'ru' => '',
+  ),
+  'see you soon!' => 
+  array (
+    'en' => 'See you soon!',
+    'ua' => 'До зустрічі!',
+    'de' => '',
+    'ru' => 'До встречи!',
+  ),
+  'send you cv and cover letter straight away to' => 
+  array (
+    'en' => 'Send your CV to',
+    'ua' => 'Надсилайте своє резюме на пошту',
+    'de' => '',
+    'ru' => 'Отправляйте свое резюме на почту',
+  ),
+  'sounds interesting?' => 
+  array (
+    'en' => 'Sounds interesting?',
+    'ua' => 'Цікаво?',
+    'de' => '',
+    'ru' => 'Звучит интересно?',
+  ),
+  'stay in touch' => 
+  array (
+    'en' => 'Stay in touch',
+    'ua' => 'Залишатися на зв’язку',
+    'de' => 'Im Kontakt bleiben',
+    'ru' => 'Оставаться на связи',
+  ),
+  'no results found for the criteria you entered. please search again.' => 
+  array (
+    'en' => 'No results found for the criteria you entered. please search again.',
+    'ua' => '',
+    'de' => '',
+    'ru' => '',
+  ),
+  'people' => 
+  array (
+    'en' => 'People',
+    'ua' => 'Команда',
+    'de' => 'Team',
+    'ru' => 'Команда',
+  ),
+  'expertise' => 
+  array (
+    'en' => 'Expertise',
+    'ua' => 'Послуги',
+    'de' => 'Dienstleistungen',
+    'ru' => 'Услуги',
   ),
 );
 

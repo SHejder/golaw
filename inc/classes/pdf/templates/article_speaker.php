@@ -6,9 +6,16 @@
     <?php for($i = 0; $i <= $data['people_count']; $i++):?>
     <div class="lawyer-ab__wrap-head-main">
         <figure class="lawyer-ab__wrap-img">
-            <img src="<?= $data['photo_'.$i][0]; ?>" style="width: 200px; height: 200px" alt="Name img">
+            <img src="<?= $data['photo_'.$i][0]; ?>" style="width: 150px; height: 150px; float: left" alt="Name img">
+                <div class="lawyer-ab__wrap-name-pos" style="padding: 0; margin-left: 30px;">
+                    <h2 class="lawyer-ab__name" style="margin-top: 0; ">
+                    <?= wpm_translate_string($data['name_'.$i]); ?>
+                    <p class="lawyer-ab__position" style="font-size: 12px; margin-top:10px; ">
+                        <?= $data['description_'.$i]; ?>
+                    </p>
+                </h2>
         </figure>
-        <div class="lawyer-ab__wrap-about">
+        <!-- <div class="lawyer-ab__wrap-about">
             <div class="lawyer-ab__wrap-name-pos" style="padding: 0; width: 350px;">
                 <h2 class="lawyer-ab__name"  style="text-transform: capitalize;">
                     <a href="#" class="lawyer-ab__name-link" style="text-transform: capitalize;">
@@ -19,7 +26,7 @@
                     <?= $data['description_'.$i]; ?>
                 </p>
             </div>
-        </div>
+        </div> -->
     </div>
     <hr>
     <?php endfor;?>

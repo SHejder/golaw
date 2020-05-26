@@ -38,6 +38,12 @@ add_filter('upload_mimes', function ($mimes){
     $mimes['vcf'] = 'text/vcard';
     return $mimes;
 });
+add_filter('wpseo_breadcrumb_single_link_info', function ($crumb){
+    if(in_array($crumb['text'], ['People', 'Expertise', 'Insights'])){
+        $crumb['text'] = trans($crumb['text'], false);
+    }
+    return $crumb;
+});
 
 //actions
 //loadmore ajax
@@ -68,11 +74,14 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('jquery');
     wp_enqueue_script('swiper.min.js', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.3', true);
     wp_enqueue_script('simplebar.min.js', get_template_directory_uri() . '/js/simplebar.min.js', array(), '1.0.3', true);
-    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), '7.2', true);
-    wp_enqueue_script('function', get_template_directory_uri() . '/js/function.js', 'main', '6.1', true);
+    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), '8.0', true);
+    wp_enqueue_script('function', get_template_directory_uri() . '/js/function.js', 'main', '7', true);
 });
 add_action('save_post_people', 'savePDF', 10, 3);
 add_action('init', 'saveUtmToCookie');
+
+remove_action('wp_head', 'wpm_set_alternate_links');
+add_action( 'wp_head', 'post_set_alternate_links' );
 
 
 //theme configuration
@@ -80,6 +89,7 @@ if (function_exists('add_theme_support')) {
     add_theme_support('menus');
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+    add_theme_support( 'yoast-seo-breadcrumbs' );
     add_theme_support('custom-header', array(
         'default-image' => get_template_directory_uri() . '/img/hero-bg.jpg',
         'uploads' => true,

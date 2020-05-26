@@ -45,6 +45,9 @@
             </p>
             <hr>
         <?php endif; ?>
+        <!--start title-->
+        <?= $title; ?>
+        <!--end title-->
         <?= $content; ?>
         <?= isset($data['cases']) ? $data['cases'] : ''; ?>
     </div>

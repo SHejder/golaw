@@ -28,14 +28,6 @@
                 </div>
             </div>
         </form>
-        <script>
-            let session_cat = <?= isset($_SESSION['insights']['cat']) ? $_SESSION['insights']['cat'] : '0';?>,
-                session_topic = <?= isset($_SESSION['insights']['tag_id']) ? $_SESSION['insights']['tag_id'] : '0'?>;
-            if(session_cat !== undefined || session_topic !== undefined){
-                $('#search_topic').val(session_topic);
-                $('#search_category').val(session_cat);
-            }
-        </script>
     </div>
 </header>
 

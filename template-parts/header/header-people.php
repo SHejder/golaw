@@ -1,13 +1,4 @@
 <?php
-if($_GET){
-    unset($_SESSION['people']);
-    if ($_GET['q']) {
-        $_SESSION['people']['s'] = $_GET['q'];
-        $_SESSION['people']['post_type'] = 'people';
-        $_SESSION['people']['orderby'] = 'menu_order';
-        $_SESSION['people']['order'] = 'ASC';
-    }
-}
 $articles = array(6, 7, 8);
 if (in_array($id, $articles)) {
     if (is_single() && in_category($articles)){
@@ -32,7 +23,7 @@ if (in_array($id, $articles)) {
     <div class="container">
         <form action="#" id="people-search" class="search-bar law-s">
             <div class="search-bar__main-input">
-                <input type="text" id="people-query" name="query-people" value="<?= isset($_GET['q']) ? $_GET['q'] : ''?>"
+                <input type="text" id="people-query" name="query-people" value="<?= !empty($_GET['q']) ? $_GET['q'] : ''?>"
                        class="search-bar__input s-field-law" placeholder="<?php trans('Search by name or surname')?>">
                 <button class="search-bar__submit">
                             <span>
@@ -59,17 +50,6 @@ if (in_array($id, $articles)) {
                 </div>
             </div>
         </form>
-        <script>
-            var session_practice = <?= isset($_SESSION['people']['results']['practice']) ? $_SESSION['people']['results']['practice'] : '0';?>,
-                  session_location = <?= isset($_SESSION['people']['results']['location']) ? $_SESSION['people']['results']['location'] : '0'?>,
-                  session_sector = <?= isset($_SESSION['people']['results']['sector']) ? $_SESSION['people']['results']['sector'] : '0'?>;
-            if(session_practice !== undefined || session_location !== undefined || session_sector !== undefined){
-                $('.s-practice').val(session_practice);
-                $('.s-location').val(session_location);
-                $('.s-sector').val(session_sector);
-            }
-        </script>
-
     </div>
 </header>
 
