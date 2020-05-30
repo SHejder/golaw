@@ -4,6 +4,7 @@ use classes\pdf\ArticlePdf;
 use classes\pdf\Pdf;
 use classes\pdf\ServicePdf;
 use Mpdf\Mpdf;
+use classes\api\Controller\RESTCategoryController;
 
 require_once __DIR__ . '/inc/vendor/autoload.php';
 
@@ -83,6 +84,12 @@ add_action('init', 'saveUtmToCookie');
 remove_action('wp_head', 'wpm_set_alternate_links');
 add_action( 'wp_head', 'post_set_alternate_links' );
 
+//api
+add_action( 'rest_api_init', 'register_api_routes' );
+function register_api_routes(){
+    $controller = new RESTCategoryController();
+    $controller->register_routes();
+}
 
 //theme configuration
 if (function_exists('add_theme_support')) {
