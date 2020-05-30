@@ -1,7 +1,7 @@
 <?php
 
 
-namespace inc\classes\api\Controller;
+namespace classes\api\Controller;
 
 use WP_REST_Controller;
 use WP_REST_Response;
