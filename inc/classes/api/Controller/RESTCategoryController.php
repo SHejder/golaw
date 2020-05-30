@@ -54,7 +54,7 @@ class RESTCategoryController extends WP_REST_Controller
         }
 
         if(!empty($properties['title'])){
-            $category_data['title'] = wpm_translate_string($category->name, 'UA');
+            $category_data['title'] = $category->name;
         }
 
         return $category_data;
