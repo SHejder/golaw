@@ -81,7 +81,7 @@ class RESTPostController extends WP_REST_Controller
         if (!empty($properties['date'])) {
             setlocale(LC_TIME, 'uk_UA');
             $date = strftime('%d %B %G', strtotime($post->post_date));
-            $post_data['date'] = $date;
+            $post_data['date'] = $this->format_string($date);
         }
 
         if (!empty($properties['url'])) {
@@ -157,6 +157,20 @@ class RESTPostController extends WP_REST_Controller
             ],
         ];
 
+    }
+
+    private function mb_ucfirst($string, $encoding = "utf8")
+    {
+        $strlen = mb_strlen($string, $encoding);
+        $firstChar = mb_substr($string, 0, 1, $encoding);
+        $then = mb_substr($string, 1, $strlen - 1, $encoding);
+        return mb_strtoupper($firstChar, $encoding) . $then;
+    }
+
+    private function format_string(string $string){
+        $splited = explode(' ', $string);
+        $splited[1] = $this->mb_ucfirst($splited[1]);
+        return join(" ", $splited);
     }
 
 
