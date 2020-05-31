@@ -36,9 +36,9 @@ class RESTCategoryController extends WP_REST_Controller
             return $data;
         }
 
-        foreach ($categories as $category){
-            $response = $this->prepare_item_for_response( $category, $request );
-            $data[] = $this->prepare_response_for_collection( $response );
+        foreach ($categories as $category) {
+            $response = $this->prepare_item_for_response($category, $request);
+            $data[] = $this->prepare_response_for_collection($response);
         }
         return $data;
     }
@@ -49,34 +49,34 @@ class RESTCategoryController extends WP_REST_Controller
 
         $schema = $this->get_item_schema();
         $properties = $schema['properties'];
-        if(!empty($properties['id'])){
+        if (!empty($properties['id'])) {
             $category_data['id'] = (int)$category->term_id;
         }
 
-        if(!empty($properties['title'])){
+        if (!empty($properties['title'])) {
             $category_data['title'] = $category->name;
         }
 
         return $category_data;
     }
 
-    function prepare_response_for_collection( $response ){
+    function prepare_response_for_collection($response)
+    {
 
-        if ( ! ( $response instanceof WP_REST_Response ) ){
+        if (!($response instanceof WP_REST_Response)) {
             return $response;
         }
 
-        $data = (array) $response->get_data();
+        $data = (array)$response->get_data();
         $server = rest_get_server();
 
-        if ( method_exists( $server, 'get_compact_response_links' ) ){
-            $links = call_user_func( [ $server, 'get_compact_response_links' ], $response );
-        }
-        else {
-            $links = call_user_func( [ $server, 'get_response_links' ], $response );
+        if (method_exists($server, 'get_compact_response_links')) {
+            $links = call_user_func([$server, 'get_compact_response_links'], $response);
+        } else {
+            $links = call_user_func([$server, 'get_response_links'], $response);
         }
 
-        if ( ! empty( $links ) ){
+        if (!empty($links)) {
             $data['_links'] = $links;
         }
 
