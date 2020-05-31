@@ -3,7 +3,6 @@
 
 namespace classes\api;
 
-use classes\api\Controller\RESTPostController, classes\api\Controller\RESTCategoryController;
 use WP_Error;
 use WP_REST_Controller;
 
