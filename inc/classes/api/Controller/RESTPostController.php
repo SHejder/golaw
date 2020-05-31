@@ -71,7 +71,7 @@ class RESTPostController extends WP_REST_Controller
         $schema = $this->get_item_schema();
         $properties = $schema['properties'];
         if (!empty($properties['name'])) {
-            $post_data['name'] = $post->post_title;
+            $post_data['name'] = wpm_translate_string($post->post_title, 'ua');
         }
 
         if (!empty($properties['image'])) {
