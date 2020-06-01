@@ -79,7 +79,7 @@ class RESTPostController extends WP_REST_Controller
         }
 
         if (!empty($properties['date'])) {
-            setlocale(LC_TIME, 'uk_UA');
+            setlocale(LC_TIME, ['uk_UA','uk_UA.utf8']);
             $date = strftime('%d %B %G', strtotime($post->post_date));
             $post_data['date'] = $this->format_string($date);
         }
